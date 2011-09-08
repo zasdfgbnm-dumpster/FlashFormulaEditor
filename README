@@ -1,0 +1,12 @@
+(First, sorry for my poor English. If you wish, you are welcomed to
+help improve this project's README files and comments in source code)
+
+Flash Math Editor is a Flash that can be put into your website to help
+your website's user post contents containing formula in an easy way.
+
+If you wish to add this software to your website, please go to the 
+bin-release directory and download the archive there. The archieve
+contains a README file and this file will help.
+
+The source code of this project is in the src directory. The README
+file there describes the overall structure of the source code.

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Graphic version="1.0" viewHeight="90.8208" viewWidth="133.348" ai:appVersion="14.0.0.367" d:id="1" xmlns="http://ns.adobe.com/fxg/2008" xmlns:ai="http://ns.adobe.com/ai/2008" xmlns:d="http://ns.adobe.com/fxg/2008/dt">
+  <Library/>
+  <Group d:id="2" d:type="layer" d:userLabel="图层 1">
+    <Group>
+      <Path winding="nonZero" ai:knockout="0" data="M26.9531 89.0142L26.9531 90.8208C22.0376 88.3462 17.936 85.4497 14.6484 82.1294 9.96094 77.4087 6.34766 71.8423 3.80859 65.4302 1.26953 59.0181 0 52.3599 0 45.4595 0 35.3682 2.49023 26.1641 7.4707 17.8467 12.4512 9.52979 18.9453 3.58105
+ 26.9531 0L26.9531 2.05078C22.9492 4.26465 19.6611 7.29199 17.0898 11.1328 14.5181 14.9741 12.5977 19.8408 11.3281 25.7324 10.0586 31.6245 9.42383 37.7769 9.42383 44.1895 9.42383 51.1558 9.96094 57.4868 11.0352 63.1841 11.8813 67.6763 12.9067
+ 71.2798 14.1113 73.9985 15.3154 76.7173 16.9351 79.3286 18.9697 81.8364 21.0039 84.3423 23.665 86.7349 26.9531 89.0142Z" >
+        <fill>
+          <SolidColor/>
+        </fill>
+      </Path>
+      <Path winding="nonZero" ai:knockout="0" data="M106.395 2.05127L106.395 0.000488281C111.342 2.44189 115.46 5.32275 118.748 8.64307 123.402 13.396 127 18.9702 129.539 25.3667 132.078 31.7632 133.348 38.4282 133.348 45.3623 133.348 55.4536 130.865 64.6567 125.901 72.9731 120.937 81.2896
+ 114.435 87.2388 106.395 90.8208L106.395 89.0142C110.398 86.7681 113.694 83.731 116.282 79.9067 118.87 76.0825 120.79 71.2153 122.044 65.3071 123.297 59.3989 123.924 53.2388 123.924 46.8267 123.924 39.8931 123.387 33.562 122.313 27.8325 121.498
+ 23.3403 120.481 19.7437 119.261 17.0415 118.04 14.3398 116.42 11.7358 114.402 9.229 112.384 6.72266 109.715 4.33008 106.395 2.05127Z" >
+        <fill>
+          <SolidColor/>
+        </fill>
+      </Path>
+      <Group x="31.3789" y="0.587402" ai:knockout="0">
+        <Path winding="nonZero" ai:knockout="0" data="M70.665 89.0801L55.8301 89.0801 55.8301 83.4102 64.9951 83.4102 64.9951 77.4326 70.665 77.4326 70.665 89.0801 70.665 89.0801ZM43.8301 89.0801L31.8301 89.0801 31.8301 83.4102 43.8301 83.4102 43.8301 89.0801 43.8301 89.0801ZM19.8301 89.0801
+L7.83008 89.0801 7.83008 83.4102 19.8301 83.4102 19.8301 89.0801 19.8301 89.0801ZM5.66895 79.2402L0 79.2402 0 67.2402 5.66895 67.2402 5.66895 79.2402 5.66895 79.2402ZM70.665 65.4326L64.9951 65.4326 64.9951 53.4326 70.665 53.4326 70.665 65.4326
+ 70.665 65.4326ZM5.66895 55.2402L0 55.2402 0 43.2407 5.66895 43.2407 5.66895 55.2402 5.66895 55.2402ZM70.665 41.4326L64.9951 41.4326 64.9951 29.4326 70.665 29.4326 70.665 41.4326 70.665 41.4326ZM5.66895 31.2407L0 31.2407 0 19.2407 5.66895 19.2407
+ 5.66895 31.2407 5.66895 31.2407ZM70.665 17.4326L64.9951 17.4326 64.9951 5.43262 70.665 5.43262 70.665 17.4326 70.665 17.4326ZM5.66895 7.24072L0 7.24072 0 0 10.4282 0 10.4282 5.66895 5.66895 5.66895 5.66895 7.24072 5.66895 7.24072ZM58.4287 5.66895
+L46.4287 5.66895 46.4287 0 58.4287 0 58.4287 5.66895 58.4287 5.66895ZM34.4282 5.66895L22.4282 5.66895 22.4282 0 34.4282 0 34.4282 5.66895 34.4282 5.66895Z" >
+          <fill>
+            <SolidColor/>
+          </fill>
+        </Path>
+      </Group>
+    </Group>
+  </Group>
+  <Private>
+    <ai:PrivateElement d:ref="#1">
+      <ai:SaveOptions>
+        <ai:Dictionary>
+          <ai:DictEntry name="clipToActiveArtboard" value="1" valueType="Boolean"/>
+          <ai:DictEntry name="downsampleLinkedImages" value="0" valueType="Boolean"/>
+          <ai:DictEntry name="rasterizeResolution" value="72" valueType="Integer"/>
+          <ai:DictEntry name="preserveGradientPolicy" value="3" valueType="Integer"/>
+          <ai:DictEntry name="preserveFilterPolicy" value="3" valueType="Integer"/>
+          <ai:DictEntry name="preserveTextPolicy" value="3" valueType="Integer"/>
+          <ai:DictEntry name="includeSymbol" value="0" valueType="Boolean"/>
+          <ai:DictEntry name="aiEditCap" value="1" valueType="Boolean"/>
+          <ai:DictEntry name="versionKey" value="1" valueType="Integer"/>
+          <ai:DictEntry name="writeImages" value="1" valueType="Boolean"/>
+          <ai:DictEntry name="includeXMP" value="0" valueType="Boolean"/>
+        </ai:Dictionary>
+      </ai:SaveOptions>
+      <ai:DocData base="paren.assets/images"/>
+      <ai:Artboards originOffsetH="-16.618" originOffsetV="95.827" rulerCanvasDiffH="50.5" rulerCanvasDiffV="-49.5" zoom="5.87">
+        <ai:Artboard active="1" bottom="5.006" index="0" left="-16.618" right="116.729" top="95.827"/>
+        <ai:ArtboardsParam all="0" range="" type="0"/>
+      </ai:Artboards>
+    </ai:PrivateElement>
+    <ai:PrivateElement d:ref="#2">
+      <ai:LayerOptions colorType="ThreeColor">
+        <ai:ThreeColor blue="257" green="128.502" red="79.31"/>
+      </ai:LayerOptions>
+    </ai:PrivateElement>
+  </Private>
+</Graphic>

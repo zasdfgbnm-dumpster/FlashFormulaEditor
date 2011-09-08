@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2009 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for the Spark Button component.  
+
+@langversion 3.0
+@playerversion Flash 10
+@playerversion AIR 1.5
+@productversion Flex 4
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:button_icon="button_icon.*"
+			 xmlns:fb="http://ns.adobe.com/flashbuilder/2009" minWidth="98" minHeight="161" alpha.disabled="0.5">
+
+	<!-- host component -->
+	<fx:Metadata>
+	    <![CDATA[ 
+		/** 
+		 * @copy spark.skins.default.ApplicationSkin#hostComponent
+		 */
+		[HostComponent("spark.components.Button")]
+	    ]]>
+	</fx:Metadata>
+	
+	<!-- states -->
+	<s:states>
+		<s:State name="up" />
+		<s:State name="over" />
+		<s:State name="down" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<!-- Layer 1: border -->
+	<s:Rect id="border" left="0" right="0" top="0" bottom="0" radiusX="4">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="0x426089" 
+								 color.over="0x5C85B8" 
+								 color.down="0x263852" 
+								 alpha="1.0" />
+				<s:GradientEntry color="0x304663" 
+								 color.over="0x43658F" 
+								 color.down="0x2E4260" 
+								 alpha="1.0" />
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<!-- Layer 2: innerBorder -->
+	<s:Rect id="innerBorder" left="1" right="1" top="1" bottom="1" radiusX="3">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="0x557FB5" 
+								 color.over="0x77B1D2" 
+								 color.down="0x344E6D" 
+								 alpha="1.0" />
+				<s:GradientEntry color="0x42628A" 
+								 color.over="0x5C89B9" 
+								 color.down="0x3E5A80"
+								 alpha="1.0" />
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<!-- Layer 3: insetBorder -->
+	<s:Rect id="insetBorder" left="2" right="2" top="2" bottom="2" radiusX="2">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="0x426089" 
+								 color.over="0x426089" 
+								 color.down="0x263852" 
+								 alpha="1.0" />
+				<s:GradientEntry color="0x304663" 
+								 color.over="0x304663" 
+								 color.down="0x2E4260" 
+								 alpha="1.0" />
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<!-- Layer 4: fill -->
+	<s:Rect id="fill" left="3" right="3" top="3" bottom="3" radiusX="1">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="0x446690" 
+								 color.over="0x446690" 
+								 color.down="0x2B405C"
+								 alpha="1.0"/>
+				<s:GradientEntry color="0x496C9A" 
+								 color.over="0x496C9A" 
+								 color.down="0x2F4563" 
+								 alpha="1.0" 
+								 ratio=".1"/>
+				<s:GradientEntry color="0x3D5A80" 
+								 color.over="0x3D5A80" 
+								 color.down="0x354D6F" 
+								 alpha="1.0" 
+								 ratio=".9"/>
+				<s:GradientEntry color="0x385275" 
+								 color.over="0x385275" 
+								 color.down="0x314867" 
+								 alpha="1.0" 
+								 ratio=".1"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	
+	<!-- layer 5: icon -->
+	
+	<button_icon:vec id="icon" left="10" right="10" top="10" bottom="10"/>
+	
+</s:Skin>

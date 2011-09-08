@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Graphic version="1.0" viewHeight="143.669" viewWidth="163.669" ai:appVersion="14.0.0.367" d:id="1" xmlns="http://ns.adobe.com/fxg/2008" xmlns:ai="http://ns.adobe.com/ai/2008" xmlns:d="http://ns.adobe.com/fxg/2008/dt">
+  <Library/>
+  <Group d:id="2" d:type="layer" d:userLabel="图层 1">
+    <Group>
+      <Group ai:knockout="0">
+        <Path winding="nonZero" ai:knockout="0" data="M96.8345 121.669L85.4956 121.669 85.4956 116 93.9995 116 93.9995 107.024 99.6694 107.024 99.6694 118.362 96.8345 118.362 96.8345 121.669 96.8345 121.669ZM74.1572 121.669L62.8188 121.669 62.8188 116 74.1572 116 74.1572 121.669 74.1572 121.669Z
+M51.48 121.669L40.1416 121.669 40.1416 116 51.48 116 51.48 121.669 51.48 121.669ZM28.8032 121.669L17.4644 121.669 17.4644 116 28.8032 116 28.8032 121.669 28.8032 121.669ZM6.12598 121.669L0 121.669 0 110.788 5.66895 110.788 5.66895 116 6.12598
+ 116 6.12598 121.669 6.12598 121.669ZM5.66895 99.4487L0 99.4487 0 88.1099 5.66895 88.1099 5.66895 99.4487 5.66895 99.4487ZM99.6694 95.6851L93.9995 95.6851 93.9995 84.3462 99.6694 84.3462 99.6694 95.6851 99.6694 95.6851ZM5.66895 76.771L0 76.771
+ 0 65.4331 5.66895 65.4331 5.66895 76.771 5.66895 76.771ZM99.6694 73.0073L93.9995 73.0073 93.9995 61.6689 99.6694 61.6689 99.6694 73.0073 99.6694 73.0073ZM5.66895 54.0942L0 54.0942 0 42.7559 5.66895 42.7559 5.66895 54.0942 5.66895 54.0942ZM99.6694
+ 50.3306L93.9995 50.3306 93.9995 38.9922 99.6694 38.9922 99.6694 50.3306 99.6694 50.3306ZM5.66895 31.417L0 31.417 0 20.0786 5.66895 20.0786 5.66895 31.417 5.66895 31.417ZM99.6694 27.6533L93.9995 27.6533 93.9995 16.3149 99.6694 16.3149 99.6694
+ 27.6533 99.6694 27.6533ZM5.66895 8.73975L0 8.73975 0 0 8.26758 0 8.26758 5.66895 5.66895 5.66895 5.66895 8.73975 5.66895 8.73975ZM96.8345 5.66895L87.6372 5.66895 87.6372 0 99.6694 0 99.6694 4.97607 96.8345 4.97607 96.8345 5.66895 96.8345 5.66895Z
+M76.2988 5.66895L64.9604 5.66895 64.9604 0 76.2988 0 76.2988 5.66895 76.2988 5.66895ZM53.6221 5.66895L42.2832 5.66895 42.2832 0 53.6221 0 53.6221 5.66895 53.6221 5.66895ZM30.9448 5.66895L19.606 5.66895 19.606 0 30.9448 0 30.9448 5.66895 30.9448
+ 5.66895Z" >
+          <fill>
+            <SolidColor/>
+          </fill>
+        </Path>
+      </Group>
+      <Group x="116" y="93.9995" ai:knockout="0">
+        <Path winding="nonZero" ai:knockout="0" data="M47.6699 49.6699L39.166 49.6699 39.166 44 44.835 44 44.835 44.9141 47.6699 44.9141 47.6699 49.6699 47.6699 49.6699ZM33.4961 49.6699L27.8271 49.6699 27.8271 44 33.4961 44 33.4961 49.6699 33.4961 49.6699ZM22.1582 49.6699L16.4883 49.6699 16.4883
+ 44 22.1582 44 22.1582 49.6699 22.1582 49.6699ZM10.8193 49.6699L5.15039 49.6699 5.15039 44 10.8193 44 10.8193 49.6699 10.8193 49.6699ZM5.66992 43.4805L0 43.4805 0 37.8115 5.66992 37.8115 5.66992 43.4805 5.66992 43.4805ZM47.6699 39.2441L42 39.2441
+ 42 33.5752 47.6699 33.5752 47.6699 39.2441 47.6699 39.2441ZM5.66992 32.1416L0 32.1416 0 26.4727 5.66992 26.4727 5.66992 32.1416 5.66992 32.1416ZM47.6699 27.9063L42 27.9063 42 22.2363 47.6699 22.2363 47.6699 27.9063 47.6699 27.9063ZM5.66992 20.8037
+L0 20.8037 0 15.1338 5.66992 15.1338 5.66992 20.8037 5.66992 20.8037ZM47.6699 16.5674L42 16.5674 42 10.8984 47.6699 10.8984 47.6699 16.5674 47.6699 16.5674ZM5.66992 9.46484L0 9.46484 0 3.7959 5.66992 3.7959 5.66992 9.46484 5.66992 9.46484ZM44.835
+ 5.66992L41.5596 5.66992 41.5596 0 47.6699 0 47.6699 5.22852 44.835 5.22852 44.835 5.66992 44.835 5.66992ZM35.8896 5.66992L30.2207 5.66992 30.2207 0 35.8896 0 35.8896 5.66992 35.8896 5.66992ZM24.5518 5.66992L18.8818 5.66992 18.8818 0 24.5518 0
+ 24.5518 5.66992 24.5518 5.66992ZM13.2129 5.66992L7.54395 5.66992 7.54395 0 13.2129 0 13.2129 5.66992 13.2129 5.66992Z" >
+          <fill>
+            <SolidColor/>
+          </fill>
+        </Path>
+      </Group>
+    </Group>
+  </Group>
+  <Private>
+    <ai:PrivateElement d:ref="#1">
+      <ai:SaveOptions>
+        <ai:Dictionary>
+          <ai:DictEntry name="clipToActiveArtboard" value="1" valueType="Boolean"/>
+          <ai:DictEntry name="downsampleLinkedImages" value="0" valueType="Boolean"/>
+          <ai:DictEntry name="rasterizeResolution" value="72" valueType="Integer"/>
+          <ai:DictEntry name="preserveGradientPolicy" value="3" valueType="Integer"/>
+          <ai:DictEntry name="preserveFilterPolicy" value="3" valueType="Integer"/>
+          <ai:DictEntry name="preserveTextPolicy" value="3" valueType="Integer"/>
+          <ai:DictEntry name="includeSymbol" value="0" valueType="Boolean"/>
+          <ai:DictEntry name="aiEditCap" value="1" valueType="Boolean"/>
+          <ai:DictEntry name="versionKey" value="1" valueType="Integer"/>
+          <ai:DictEntry name="writeImages" value="1" valueType="Boolean"/>
+          <ai:DictEntry name="includeXMP" value="0" valueType="Boolean"/>
+        </ai:Dictionary>
+      </ai:SaveOptions>
+      <ai:DocData base="subscript.assets/images"/>
+      <ai:Artboards originOffsetH="-31.834" originOffsetV="121.834" rulerCanvasDiffH="50.5" rulerCanvasDiffV="-49.5" zoom="5.87">
+        <ai:Artboard active="1" bottom="-21.835" index="0" left="-31.834" right="131.835" top="121.834"/>
+        <ai:ArtboardsParam all="0" range="" type="0"/>
+      </ai:Artboards>
+    </ai:PrivateElement>
+    <ai:PrivateElement d:ref="#2">
+      <ai:LayerOptions colorType="ThreeColor">
+        <ai:ThreeColor blue="257" green="128.502" red="79.31"/>
+      </ai:LayerOptions>
+    </ai:PrivateElement>
+  </Private>
+</Graphic>

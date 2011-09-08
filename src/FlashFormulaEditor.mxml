@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="475" height="552" minWidth="955" minHeight="600" creationComplete="init_screen()">
+	
+	<fx:Script>
+		<![CDATA[
+			protected var scr:FMEScreen = FMEScreen.scr;
+			protected function update_screen():void{
+				var rx:Number = fmescreen.width/scr.width;
+				var ry:Number = fmescreen.height/scr.height;
+				if(rx>ry){
+					scr.scaleX *= ry;
+					scr.scaleY *= ry;
+				}else{
+					scr.scaleX *= rx;
+					scr.scaleY *= rx;
+				}
+				scr.y = fmescreen.height - scr.height;
+			}
+			protected function init_screen():void{
+				fmescreen.addChild(scr);
+				update_screen();
+				ExternalInterface.addCallback("getLatex",getLatex);
+			}
+			protected function ins(latex:String):void{
+				scr.ins(latex);
+				update_screen();
+			}
+			protected function del():void{
+				scr.del();
+				update_screen();
+			}
+			protected function backspace():void{
+				scr.backspace();
+				update_screen();
+			}
+			protected function copy():void{
+				scr.copy();
+			}
+			protected function cut():void{
+				scr.cut();
+				update_screen();
+			}
+			protected function paste():void{
+				scr.paste();
+				update_screen();
+			}
+			public function getLatex():String{
+				return scr.getLatex();
+			}	
+			protected function get_focus(event:MouseEvent):void{
+				stage.focus = screen_container;
+			}
+			protected function key_handler(event:KeyboardEvent):void
+			{
+				if(!event.ctrlKey){
+					var char:uint = event.charCode;
+					var isplain:Boolean = false;
+					isplain ||= char >= "a".charCodeAt() && char <= "z".charCodeAt();
+					isplain ||= char >= "A".charCodeAt() && char <= "Z".charCodeAt();
+					isplain ||= char >= "0".charCodeAt() && char <= "9".charCodeAt();
+					if(isplain){
+						ins(String.fromCharCode(char));
+						return;
+					}
+					switch(char){
+						case "#".charCodeAt():
+						case "$".charCodeAt():
+						case "%".charCodeAt():
+						case "{".charCodeAt():
+						case "}".charCodeAt():
+						case "&".charCodeAt():
+							ins("\\"+String.fromCharCode(char));
+							break;
+						case "~".charCodeAt():
+							ins("\\sim");
+							break;
+						case "\\".charCodeAt():
+							ins("\\backslash");
+							break;
+						case "!".charCodeAt():
+						case "*".charCodeAt():
+						case "(".charCodeAt():
+						case ")".charCodeAt():
+						case "-".charCodeAt():
+						case "+".charCodeAt():
+						case "=".charCodeAt():
+						case "[".charCodeAt():
+						case "]".charCodeAt():
+						case "|".charCodeAt():
+						case ";".charCodeAt():
+						case ":".charCodeAt():
+						case "'".charCodeAt():
+						case "\"".charCodeAt():
+						case ",".charCodeAt():
+						case ".".charCodeAt():
+						case "/".charCodeAt():
+						case "<".charCodeAt():
+						case ">".charCodeAt():
+						case "/".charCodeAt():
+						case "?".charCodeAt():
+							ins(String.fromCharCode(char));
+							break;
+					}
+				}
+				var keycode:uint = event.keyCode;
+				switch(keycode){
+					case Keyboard.DELETE:
+						del();
+						break;
+					case Keyboard.BACKSPACE:
+						backspace();
+						break;
+					case Keyboard.C:
+						if(event.ctrlKey)
+							copy();
+						break;
+					case Keyboard.X:
+						if(event.ctrlKey)
+							cut();
+						break;
+					case Keyboard.V:
+						if(event.ctrlKey)
+							paste();
+						break;
+				}
+				return;
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+	</fx:Declarations>
+	<s:BorderContainer x="10" y="158" width="455" height="100">
+		<s:Label x="14" y="21" fontSize="20" fontWeight="bold" text="Latex:"/>
+		<s:TextInput id="inslatex" x="81" y="14" width="289" fontSize="20"/>
+		<s:Button x="372" y="10" height="35" label="Insert" click="ins(inslatex.text)"
+				  fontSize="20"/>
+		<s:Button x="10" y="53" height="35" label="Cut" click="cut()"
+				  fontSize="20"/>
+		<s:Button x="74" y="53" height="35" label="Copy" click="copy()"
+				 fontSize="20"/>
+		<s:Button x="154" y="53" height="35" label="Paste" click="paste()"
+				 fontSize="20"/>
+		<s:Button x="237" y="53" height="35" label="Delete" click="del()"
+				 fontSize="20"/>
+		<s:Button x="326" y="53" height="35" label="Backspace" click="backspace()"
+				 fontSize="20"/>
+	</s:BorderContainer>
+	<mx:TabNavigator x="10" y="269" width="457" height="273">
+		<s:NavigatorContent width="100%" height="100%" label="Digits&amp;Symbols">
+			<s:Button x="10" y="10" width="35" height="35" label="7" click="ins(&quot;7&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="44" y="10" width="35" height="35" label="8" click="ins(&quot;8&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="78" y="10" width="35" height="35" label="9" click="ins(&quot;9&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="10" y="45" width="35" height="35" label="4" click="ins(&quot;4&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="44" y="45" width="35" height="35" label="5" click="ins(&quot;5&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="78" y="45" width="35" height="35" label="6" click="ins(&quot;6&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="10" y="80" width="35" height="35" label="1" click="ins(&quot;1&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="44" y="80" width="35" height="35" label="2" click="ins(&quot;2&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="78" y="80" width="35" height="35" label="3" click="ins(&quot;3&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="10" y="115" width="35" height="35" label="." click="ins(&quot;.&quot;)"
+					  fontFamily="Cambria" fontSize="30"/>
+			<s:Button x="44" y="115" width="35" height="35" label="0" click="ins(&quot;0&quot;)"
+					  fontFamily="Times New Roman" fontSize="20"/>
+			<s:Button x="78" y="115" width="35" height="35" label="-" click="ins(&quot;-&quot;)"
+					  fontFamily="Cambria" fontSize="30"/>
+			<s:Button x="133" y="25" width="35" height="35" label="+" click="ins(&quot;+&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="167" y="25" width="35" height="35" label="-" click="ins(&quot;-&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="201" y="25" width="35" height="35" label="×" click="ins(&quot;\\times&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="167" y="60" width="35" height="35" label="•" click="ins(&quot;\\cdot&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="201" y="60" width="35" height="35" label="%" click="ins(&quot;\\%&quot;)"
+					  fontFamily="Cambria" fontSize="17"/>
+			<s:Button x="133" y="95" width="35" height="35" label="≤" click="ins(&quot;\\le&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="167" y="95" width="35" height="35" label="≥" click="ins(&quot;\\ge&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="201" y="95" width="35" height="35" label="=" click="ins(&quot;=&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="133" y="130" width="35" height="35" label="＜" click="ins(&quot;&lt;&quot;)"
+					  fontFamily="Cambria" fontSize="15"/>
+			<s:Button x="167" y="130" width="35" height="35" label="＞" click="ins(&quot;&gt;&quot;)"
+					  fontFamily="Cambria" fontSize="15"/>
+			<s:Button x="201" y="130" width="35" height="35" label="≠" click="ins(&quot;\\neq&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="236" y="25" width="35" height="35" label="÷" click="ins(&quot;\\div&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="270" y="25" width="35" height="35" label="/" click="ins(&quot;/&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="304" y="25" width="35" height="35" label="\" click="ins(&quot;\\backslash&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="236" y="60" width="35" height="35" label="'" click="ins(&quot;&apos;&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="270" y="60" width="35" height="35" label=":" click="ins(&quot;:&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="304" y="60" width="35" height="35" label="&quot;" click="ins(&quot;\&quot;&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="236" y="95" width="35" height="35" label="&amp;" click="ins(&quot;\\&amp;&quot;)"
+					  fontFamily="Cambria"  fontSize="20"/>
+			<s:Button x="270" y="95" width="35" height="35" label="*" click="ins(&quot;*&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="304" y="95" width="35" height="35" label="$" click="ins(&quot;\\$&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="236" y="130" width="35" height="35" label="#" click="ins(&quot;\\#&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="270" y="130" width="35" height="35" label="?" click="ins(&quot;?&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="304" y="130" width="35" height="35" label=";" click="ins(&quot;;&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="339" y="25" width="35" height="35" label="|" click="ins(&quot;|&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="373" y="25" width="35" height="35" label="!" click="ins(&quot;!&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="339" y="60" width="35" height="35" label="(" click="ins(&quot;(&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="373" y="60" width="35" height="35" label=")" click="ins(&quot;)&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="339" y="95" width="35" height="35" label="[" click="ins(&quot;[&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="373" y="95" width="35" height="35" label="]" click="ins(&quot;]&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="339" y="130" width="35" height="35" label="{" click="ins(&quot;\\{&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="373" y="130" width="35" height="35" label="}" click="ins(&quot;\\}&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="408" y="25" width="35" height="35" label="~" click="ins(&quot;\\sim&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="408" y="60" width="35" height="35" label="." click="ins(&quot;.&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="408" y="95" width="35" height="35" label="≡" click="ins(&quot;\\equiv&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="408" y="130" width="35" height="35" label="±" click="ins(&quot;\\pm&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="133" y="165" width="35" height="35" label="," click="ins(&quot;,&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="167" y="165" width="35" height="35" label="≈" click="ins(&quot;\\approx&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="201" y="165" width="35" height="35" label="∞" click="ins(&quot;\\infty&quot;)"
+					  fontFamily="Cambria" fontSize="17"/>
+			<s:Button x="236" y="165" width="35" height="35" label="→" click="ins(&quot;\\to&quot;)"
+					  fontFamily="Cambria" fontSize="17"/>
+			<s:Button x="270" y="165" width="35" height="35" label="∵" click="ins(&quot;\\because&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="304" y="165" width="35" height="35" label="∴" click="ins(&quot;\\therefore&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="339" y="165" width="35" height="35" label="∈" click="ins(&quot;\\in&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="373" y="165" width="35" height="35" label="∉" click="ins(&quot;\\notin&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="408" y="165" width="35" height="35" label="⊂" click="ins(&quot;\\subset&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="133" y="200" width="35" height="35" label="⊆" click="ins(&quot;\\subseteq&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="167" y="200" width="35" height="35" label="⊊" click="ins(&quot;\\subsetneq&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="201" y="200" width="35" height="35" label="∪" click="ins(&quot;\\cup&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="236" y="200" width="35" height="35" label="∩" click="ins(&quot;\\cap&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="270" y="200" width="35" height="35" label="∅" click="ins(&quot;\\emptyset&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="304" y="200" width="35" height="35" label="∂" click="ins(&quot;\\partial&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="339" y="200" width="35" height="35" label="∇" click="ins(&quot;\\nabla&quot;)"
+					  fontFamily="Cambria" fontSize="15"/>
+			<s:Button x="373" y="200" width="35" height="35" label="∝" click="ins(&quot;\\propto&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="408" y="200" width="35" height="35" label="¬" click="ins(&quot;\\neg&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="10" y="200" width="35" height="35" label="∀" click="ins(&quot;\\forall&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="44" y="200" width="35" height="35" label="⇒" click="ins(&quot;\\Rightarrow&quot;)"
+					  fontFamily="Cambria" fontSize="17"/>
+			<s:Button x="79" y="200" width="54" height="35" label="⟺" click="ins(&quot;\\Leftrightarrow&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="133" y="60" width="35" height="35" label="∃" click="ins(&quot;\\exists&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+			<s:Button x="54" y="165" width="35" height="35" label="ℏ" click="ins(&quot;\\hbar&quot;)"
+					  fontFamily="Cambria" fontSize="25"/>
+			<s:Button x="89" y="165" width="44" height="35" label="↦" click="ins(&quot;\\mapsto&quot;)"
+					  fontFamily="Cambria" fontSize="20"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Greek Alphabets">
+			<s:Button x="18" y="20" width="35" height="35" label="α" click="ins(&quot;\\alpha&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="20" width="35" height="35" label="β" click="ins(&quot;\\beta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="20" width="35" height="35" label="γ" click="ins(&quot;\\gamma&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="20" width="35" height="35" label="δ" click="ins(&quot;\\delta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="20" width="35" height="35" label="ϵ" click="ins(&quot;\\epsilon&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="20" width="35" height="35" label="ζ" click="ins(&quot;\\zeta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="20" width="35" height="35" label="η" click="ins(&quot;\\eta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="20" width="35" height="35" label="θ" click="ins(&quot;\\theta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="20" width="35" height="35" label="ι" click="ins(&quot;\\iota&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="20" width="35" height="35" label="κ" click="ins(&quot;\\kappa&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="20" width="35" height="35" label="λ" click="ins(&quot;\\lambda&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="20" width="35" height="35" label="μ" click="ins(&quot;\\mu&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="55" width="35" height="35" label="ν" click="ins(&quot;\\nu&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="55" width="35" height="35" label="ξ" click="ins(&quot;\\xi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="55" width="35" height="35" label="ο" click="ins(&quot;\\omicron&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="55" width="35" height="35" label="π" click="ins(&quot;\\pi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="55" width="35" height="35" label="ρ" click="ins(&quot;\\rho&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="55" width="35" height="35" label="σ" click="ins(&quot;\\sigma&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="55" width="35" height="35" label="τ" click="ins(&quot;\\tau&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="55" width="35" height="35" label="υ" click="ins(&quot;\\upsilon&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="55" width="35" height="35" label="ϕ" click="ins(&quot;\\phi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="55" width="35" height="35" label="χ" click="ins(&quot;\\chi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="55" width="35" height="35" label="ψ" click="ins(&quot;\\psi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="55" width="35" height="35" label="ω" click="ins(&quot;\\omega&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="107" width="35" height="35" label="Α" click="ins(&quot;\\Alpha&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="107" width="35" height="35" label="Β" click="ins(&quot;\\Beta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="107" width="35" height="35" label="Γ" click="ins(&quot;\\Gamma&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="107" width="35" height="35" label="Δ" click="ins(&quot;\\Delta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="107" width="35" height="35" label="Ε" click="ins(&quot;\\Epsilon&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="107" width="35" height="35" label="Ζ" click="ins(&quot;\\Zeta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="107" width="35" height="35" label="Η" click="ins(&quot;\\Eta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="107" width="35" height="35" label="Θ" click="ins(&quot;\\Theta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="107" width="35" height="35" label="Ι" click="ins(&quot;\\Iota&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="107" width="35" height="35" label="Κ" click="ins(&quot;\\Kappa&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="107" width="35" height="35" label="Λ" click="ins(&quot;\\Lambda&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="107" width="35" height="35" label="Μ" click="ins(&quot;\\Mu&quot;)"
+					  fontFamily="Times New Roman" fontSize="17" fontStyle="italic"/>
+			<s:Button x="18" y="142" width="35" height="35" label="Ν" click="ins(&quot;\\Nu&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="142" width="35" height="35" label="Ξ" click="ins(&quot;\\Xi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="142" width="35" height="35" label="Ο" click="ins(&quot;\\Omicron&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="142" width="35" height="35" label="Π" click="ins(&quot;\\Pi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="142" width="35" height="35" label="Ρ" click="ins(&quot;\\Rho&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="142" width="35" height="35" label="Σ" click="ins(&quot;\\Sigma&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="142" width="35" height="35" label="Τ" click="ins(&quot;\\Tau&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="142" width="35" height="35" label="Υ" click="ins(&quot;\\Upsilon&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="142" width="35" height="35" label="Φ" click="ins(&quot;\\Phi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="142" width="35" height="35" label="Χ" click="ins(&quot;\\Chi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="142" width="35" height="35" label="Ψ" click="ins(&quot;\\Psi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="142" width="35" height="35" label="Ω" click="ins(&quot;\\Omega&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="194" width="35" height="35" label="ε" click="ins(&quot;\\varepsilon&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="194" width="35" height="35" label="ϑ" click="ins(&quot;\\vartheta&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="194" width="35" height="35" label="ϰ" click="ins(&quot;\\varkappa&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="194" width="35" height="35" label="ϖ" click="ins(&quot;\\varpi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="194" width="35" height="35" label="ϱ" click="ins(&quot;\\varrho&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="194" width="35" height="35" label="ς" click="ins(&quot;\\varsigma&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="194" width="35" height="35" label="φ" click="ins(&quot;\\varphi&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Lattin Alphabets">
+			<s:Button x="18" y="20" width="35" height="35" label="a" click="ins(&quot;a&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="20" width="35" height="35" label="b" click="ins(&quot;b&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="20" width="35" height="35" label="c" click="ins(&quot;c&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="20" width="35" height="35" label="d" click="ins(&quot;d&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="20" width="35" height="35" label="e" click="ins(&quot;e&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="20" width="35" height="35" label="f" click="ins(&quot;f&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="20" width="35" height="35" label="g" click="ins(&quot;g&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="20" width="35" height="35" label="h" click="ins(&quot;h&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="20" width="35" height="35" label="i" click="ins(&quot;i&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="20" width="35" height="35" label="j" click="ins(&quot;j&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="20" width="35" height="35" label="k" click="ins(&quot;k&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="20" width="35" height="35" label="l" click="ins(&quot;l&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="55" width="35" height="35" label="m" click="ins(&quot;m&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="55" width="35" height="35" label="n" click="ins(&quot;n&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="55" width="35" height="35" label="o" click="ins(&quot;o&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="55" width="35" height="35" label="p" click="ins(&quot;p&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="55" width="35" height="35" label="q" click="ins(&quot;q&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="55" width="35" height="35" label="r" click="ins(&quot;r&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="55" width="35" height="35" label="s" click="ins(&quot;s&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="55" width="35" height="35" label="t" click="ins(&quot;t&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="55" width="35" height="35" label="u" click="ins(&quot;u&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="55" width="35" height="35" label="v" click="ins(&quot;v&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="55" width="35" height="35" label="w" click="ins(&quot;w&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="55" width="35" height="35" label="x" click="ins(&quot;x&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="90" width="35" height="35" label="y" click="ins(&quot;y&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="129" width="35" height="35" label="A" click="ins(&quot;A&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="129" width="35" height="35" label="B" click="ins(&quot;B&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="129" width="35" height="35" label="C" click="ins(&quot;C&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="129" width="35" height="35" label="D" click="ins(&quot;D&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="129" width="35" height="35" label="E" click="ins(&quot;E&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="129" width="35" height="35" label="F" click="ins(&quot;F&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="129" width="35" height="35" label="G" click="ins(&quot;G&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="129" width="35" height="35" label="H" click="ins(&quot;H&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="129" width="35" height="35" label="I" click="ins(&quot;I&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="129" width="35" height="35" label="J" click="ins(&quot;J&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="129" width="35" height="35" label="K" click="ins(&quot;K&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="403" y="129" width="35" height="35" label="L" click="ins(&quot;L&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="164" width="35" height="35" label="M" click="ins(&quot;M&quot;)"
+					  fontFamily="Times New Roman" fontSize="17" fontStyle="italic"/>
+			<s:Button x="53" y="164" width="35" height="35" label="N" click="ins(&quot;N&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="88" y="164" width="35" height="35" label="O" click="ins(&quot;O&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="199" width="35" height="35" label="Z" click="ins(&quot;Z&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="123" y="164" width="35" height="35" label="P" click="ins(&quot;P&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="158" y="164" width="35" height="35" label="Q" click="ins(&quot;Q&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="193" y="164" width="35" height="35" label="R" click="ins(&quot;R&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="228" y="164" width="35" height="35" label="S" click="ins(&quot;S&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="263" y="164" width="35" height="35" label="T" click="ins(&quot;T&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="298" y="164" width="35" height="35" label="U" click="ins(&quot;U&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="333" y="164" width="35" height="35" label="V" click="ins(&quot;V&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="368" y="164" width="35" height="35" label="W" click="ins(&quot;W&quot;)"
+					  fontFamily="Times New Roman" fontSize="17" fontStyle="italic"/>
+			<s:Button x="403" y="164" width="35" height="35" label="X" click="ins(&quot;X&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="18" y="199" width="35" height="35" label="Y" click="ins(&quot;Y&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+			<s:Button x="53" y="90" width="35" height="35" label="z" click="ins(&quot;z&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="italic"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Big1">
+			<s:Button x="10" y="10" width="45" height="40" label="∮" click="ins(&quot;\\oint&quot;)"
+					  fontFamily="Cambria" fontSize="25" fontStyle="normal" fontWeight="normal"/>
+			<s:Button x="55" y="10" width="45" height="40" label="∫" click="ins(&quot;\\int&quot;)"
+					  fontFamily="Cambria" fontSize="25" fontStyle="normal" fontWeight="normal"/>
+			<s:Button x="100" y="10" width="45" height="40" label="∑" click="ins(&quot;\\sum&quot;)"
+					  fontFamily="Cambria" fontSize="25" fontStyle="normal" fontWeight="normal"/>
+			<s:Button x="145" y="10" width="45" height="40" label="∏" click="ins(&quot;\\prod&quot;)"
+					  fontFamily="Cambria" fontSize="25" fontStyle="normal" fontWeight="normal"/>
+			<s:Button x="190" y="10" width="45" height="40" label="⋂" click="ins(&quot;\\bigcap&quot;)"
+					  fontFamily="Cambria" fontSize="30" fontStyle="normal" fontWeight="normal"/>
+			<s:Button x="235" y="10" width="45" height="40" label="⋃" click="ins(&quot;\\bigcup&quot;)"
+					  fontFamily="Cambria" fontSize="30" fontStyle="normal" fontWeight="normal"/>
+			<s:Button x="10" y="58" width="71" height="50" click="ins(&quot;\\left[\\right]&quot;)"
+					   skinClass="icon_button_skin.bracket"/>
+			<s:Button x="10" y="115" width="47" height="100" click="ins(&quot;\\underset{\\overset{\\bigcap}{}}{}&quot;)"
+					   skinClass="icon_button_skin.cap"/>
+			<s:Button x="57" y="115" width="47" height="100" click="ins(&quot;\\underset{\\overset{\\bigcup}{}}{}&quot;)"
+					   skinClass="icon_button_skin.cup"/>
+			<s:Button x="81" y="58" width="78" height="50" click="ins(&quot;\\left\\{\\right\\}&quot;)"
+					   skinClass="icon_button_skin.curly"/>
+			<s:Button x="159" y="58" width="71" height="50" click="ins(&quot;\\left(\\right)&quot;)"
+					   skinClass="icon_button_skin.paren"/>
+			<s:Button x="104" y="115" width="52" height="100" click="ins(&quot;\\underset{\\overset{\\prod}{}}{}&quot;)"
+					   skinClass="icon_button_skin.prod"/>
+			<s:Button x="230" y="58" width="71" height="50" click="ins(&quot;\\sqrt{}&quot;)"
+					   skinClass="icon_button_skin.sqrt"/>
+			<s:Button x="301" y="58" width="67" height="50" click="ins(&quot;\\sqrt[]{}&quot;)"
+					   skinClass="icon_button_skin.sqrtn"/>
+			<s:Button x="156" y="115" width="51" height="100" click="ins(&quot;\\underset{\\overset{\\sum}{}}{}&quot;)"
+					   skinClass="icon_button_skin.sum"/>
+			<s:Button x="207" y="115" width="65" height="100" click="ins(&quot;{\\int}^{}_{}&quot;)"
+					   skinClass="icon_button_skin.dint"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Big2">
+			<s:Button x="71" y="10" width="58" height="50" click="ins(&quot;{}^{}&quot;)"
+					   skinClass="icon_button_skin.superscript"/>
+			<s:Button x="129" y="10" width="51" height="50" click="ins(&quot;{}^{}_{}&quot;)"
+					   skinClass="icon_button_skin.supersubscript"/>
+			<s:Button x="10" y="68" width="68" height="100" click="ins(&quot;\\underset{}{}&quot;)"
+					   skinClass="icon_button_skin.underset"/>
+			<s:Button x="144" y="68" width="61" height="100" click="ins(&quot;\\vec{}&quot;)"
+					   skinClass="icon_button_skin.vec"/>
+			<s:Button x="10" y="10" width="61" height="50" click="ins(&quot;{}_{}&quot;)"
+					   skinClass="icon_button_skin.subscript"/>
+			<s:Button x="205" y="68" width="61" height="100" click="ins(&quot;\\frac{}{}&quot;)"
+					   skinClass="icon_button_skin.frac"/>
+			<s:Button x="78" y="68" width="66" height="100" click="ins(&quot;\\overset{}{}&quot;)"
+					   skinClass="icon_button_skin.overset"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Functions">
+			<s:Button x="10" y="30" width="47" height="35" label="sin" click="ins(&quot;\\sin&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="57" y="30" width="51" height="35" label="cos" click="ins(&quot;\\cos&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="108" y="30" width="47" height="35" label="tan" click="ins(&quot;\\tan&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="86" y="65" width="56" height="35" label="sinh" click="ins(&quot;\\sinh&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="142" y="65" width="61" height="35" label="cosh" click="ins(&quot;\\cosh&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="203" y="65" width="58" height="35" label="tanh" click="ins(&quot;\\tanh&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="153" y="30" width="47" height="35" label="cot" click="ins(&quot;\\cot&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="261" y="65" width="58" height="35" label="coth" click="ins(&quot;\\coth&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="200" y="30" width="47" height="35" label="sec" click="ins(&quot;\\sec&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="247" y="30" width="47" height="35" label="csc" click="ins(&quot;\\csc&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="294" y="30" width="76" height="35" label="arcsin" click="ins(&quot;\\arcsin&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="369" y="30" width="76" height="35" label="arccos" click="ins(&quot;\\arccos&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="10" y="65" width="76" height="35" label="arctan" click="ins(&quot;\\arctan&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="163" y="100" width="76" height="35" label="limsup" click="ins(&quot;\\limsup&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="239" y="100" width="76" height="35" label="liminf" click="ins(&quot;\\liminf&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="350" y="135" width="40" height="35" label="lg" click="ins(&quot;\\lg&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="390" y="135" width="40" height="35" label="ln" click="ins(&quot;\\ln&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="303" y="135" width="47" height="35" label="log" click="ins(&quot;\\log&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="263" y="135" width="40" height="35" label="Pr" click="ins(&quot;\\Pr&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="10" y="135" width="54" height="35" label="gcd" click="ins(&quot;\\gcd&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="315" y="100" width="53" height="35" label="exp" click="ins(&quot;\\exp&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="64" y="135" width="47" height="35" label="det" click="ins(&quot;\\det&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="111" y="135" width="58" height="35" label="deg" click="ins(&quot;\\deg&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="10" y="170" width="56" height="35" label="dim" click="ins(&quot;\\dim&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="111" y="100" width="52" height="35" label="lim" click="ins(&quot;\\lim&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="368" y="100" width="61" height="35" label="hom" click="ins(&quot;\\hom&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="10" y="100" width="54" height="35" label="sup" click="ins(&quot;\\sup&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="64" y="100" width="47" height="35" label="inf" click="ins(&quot;\\inf&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="216" y="135" width="47" height="35" label="ker" click="ins(&quot;\\ker&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="375" y="65" width="58" height="35" label="max" click="ins(&quot;\\max&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="319" y="65" width="56" height="35" label="min" click="ins(&quot;\\min&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+			<s:Button x="169" y="135" width="47" height="35" label="arg" click="ins(&quot;\\arg&quot;)"
+					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
+		</s:NavigatorContent>
+	</mx:TabNavigator>
+	<s:BorderContainer id="screen_container" x="10" y="10" width="455" height="140"
+					   click="get_focus(event)" keyDown="key_handler(event)">
+		<s:SWFLoader id="fmescreen" x="0" y="0" width="453" height="138"/>
+	</s:BorderContainer>
+</s:Application>
