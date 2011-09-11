@@ -73,6 +73,14 @@ and align center. The center y represents the y coordinate of align center.
 Listeners are added when being constructed. These listeners decide objects' behavior.
 It is used to handle the cursor of the formula.
 
+FMEComposed has a method called update. It is called when the content of a container in this
+unit changed. Note that constructing a unit may cause the update method of this unit called,
+, this often happens when initializing the container in this unit, and the update method may
+trying to access variables that hasn't been constructed, which will cause an error. To avoid
+this, a variable called ignUpdate was used to signate whether to do the update when the update
+method called by the container in it. This variable is false by default and at the end of the
+construct function it is set to true.
+
 
 3.FMEContainer
 --------------
@@ -96,14 +104,28 @@ belongs to screen. It's level is 0. The ones containing "b/c" or "d" belongs to 
 FMEFraction "(b/c)/d". It's level is 1. The ones containing "b" or "c" belongs to the
 FMEFraction "b/c". It's level is 2.
 
-The FMEContainer has 
+The FMEContainer has a method called update. It is called after something inserted or
+removed from the FMEContainer. If the container belongs to a FMEComposed unit, the
+unit's update method will be called.
 
 
 4.FMECursor
 -----------
 
-TODO:
-introduce FMECursor
+FMECursor is the class to store cursor information. It stores the bigin position and
+end position of the cursor. The begin position is where we press our mouse and the end
+is where we release our mouse. If we hold shift and click our mouse, begin position
+will be kept unchange and end position will be changed to where we click. A position is
+stored as an reference to a FMEContainer and the index in this FMEContainer. 
+
+When we call the method getContainer, getBeginIdx and getEndIdx, these function will
+calculate the common FMEContainer of begin and end cursor with max level and the index
+these cursor in this container. The return value of getContainer is the container
+calculated and the begin and end index is returned by getBeginIdx and getEndIdx respectively.
+
+When the begin or end cursor changed, the update function of FMECursor will be called. The
+update function will find whether the return value of getBeginIdx equals that of getEndIdx.
+If not, it means that we selected some units, and the isArea method will return true.
 
 
 5.Things to be done
