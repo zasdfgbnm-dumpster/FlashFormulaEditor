@@ -77,8 +77,7 @@ package
 			ins(clipboard);
 		}
 		public function getLatex():String{
-			var c:FMEContainer = cursor.getContainer();
-			return c.getLatex(0,c.length());
+			return content.getLatex(0,content.length());
 		}
 	}
 }
