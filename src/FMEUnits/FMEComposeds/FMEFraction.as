@@ -39,6 +39,8 @@ package FMEUnits.FMEComposeds
 			addChild(denominator);
 			numerator.ins(0,numeratorLatex);
 			denominator.ins(0,denominatorLatex);
+			numerator.setLRUD(who,who,null,denominator);
+			denominator.setLRUD(who,who,numerator,null);
 			updateLayout();
 			updateHitArea();
 			ignUpdate = false;

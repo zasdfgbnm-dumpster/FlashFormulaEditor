@@ -20,6 +20,7 @@ package FMEUnits.FMEComposeds
 			super(who);
 			body = new FMEContainer(this,who.level+1);
 			body.ins(0,bodyLatex);
+			body.setLRUD(who,who,null,null);
 			addChild(body);
 			addChild(vecSgn);
 			updateLayout();

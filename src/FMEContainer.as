@@ -9,11 +9,21 @@ package
 		private var _level:int;
 		private var _parent:FMEUnit;
 		private var ignUpdate:Boolean = true;
+		private var _leftc:FMEContainer = null;
+		private var _rightc:FMEContainer = null;
+		private var _upc:FMEContainer = null;
+		private var _downc:FMEContainer = null;
 		public function FMEContainer(parent:FMEUnit,level:int){
 			_parent = parent;
 			_level = level;
 			updateBox();
 			ignUpdate = false;
+		}
+		public function setLRUD(left:FMEContainer,right:FMEContainer,up:FMEContainer,down:FMEContainer):void{
+			_leftc = left;
+			_rightc = right;
+			_upc = up;
+			_downc = down;
 		}
 		public function cheight():Number{
 			if(content.length==0)
@@ -27,16 +37,12 @@ package
 		}
 		private function updateBox():void{
 			if(content.length==0){
-				if(_parent!=null){
+				if(_parent!=null)
 					addChild(box);
-					box.displayed = true;
-				}
 				return;
 			}
-			if(box.displayed){
+			if(contains(box))
 				removeChild(box);
-				box.displayed = false;
-			}
 		}
 		private function updateContent():void{
 			var cx:Number = 0;
@@ -173,13 +179,24 @@ package
 		public function get level():int{
 			return _level;
 		}
+		public function get leftc():FMEContainer{
+			return _leftc;
+		}
+		public function get rightc():FMEContainer{
+			return _rightc;
+		}
+		public function get upc():FMEContainer{
+			return _upc;
+		}
+		public function get downc():FMEContainer{
+			return _downc;
+		}
 	}
 }
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 
 class boxClass extends Sprite{
-	public var displayed:Boolean = false;
 	public static const h:Number = 70;
 	public static const lspace:Number = 5;
 	[Embed(source="svgs/box.svg")]
@@ -188,11 +205,10 @@ class boxClass extends Sprite{
 	public function boxClass(){
 		svg.x = lspace;
 		svg.y = h/2-svg.height/2;
-		graphics.drawRect(0,0,lspace+svg.width,h);
+		hitArea = new Sprite();
+		hitArea.graphics.drawRect(0,0,lspace+svg.width,h);
+		addChild(hitArea);
 		addChild(svg);
-		addEventListener(MouseEvent.CLICK,function(event:MouseEvent):void{
-			event.stopPropagation();
-		});
 		addEventListener(MouseEvent.MOUSE_DOWN,function(event:MouseEvent):void{
 			FMEScreen.scr.cursor.setCursor((parent as FMEContainer),0,(parent as FMEContainer),0);
 			event.stopPropagation();

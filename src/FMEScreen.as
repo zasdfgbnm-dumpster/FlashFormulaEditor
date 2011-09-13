@@ -76,6 +76,68 @@ package
 		public function paste():void{
 			ins(clipboard);
 		}
+		public function mvLeft():void{
+			var c:FMEContainer = cursor.getContainer();
+			var idx:int = cursor.getBeginIdx();
+			if(cursor.isArea()){
+				var ridx:int =  cursor.getEndIdx();
+				if(ridx<idx)
+					idx=ridx;
+				cursor.setCursor(c,idx,c,idx);
+			}else{
+				if(idx>0){
+					idx--;
+					cursor.setCursor(c,idx,c,idx);
+				}else{
+					if(c.leftc!=null){
+						if(c.leftc==c.getParent().getParent())
+							idx = c.getParent().index;
+						else
+							idx = c.leftc.length();
+						c = c.leftc;
+						cursor.setCursor(c,idx,c,idx);
+					}
+				}
+			}
+		}
+		public function mvRight():void{
+			var c:FMEContainer = cursor.getContainer();
+			var idx:int = cursor.getBeginIdx();
+			if(cursor.isArea()){
+				var ridx:int =  cursor.getEndIdx();
+				if(ridx>idx)
+					idx=ridx;
+				cursor.setCursor(c,idx,c,idx);
+			}else{
+				if(idx<c.length()){
+					idx++;
+					cursor.setCursor(c,idx,c,idx);
+				}else{
+					if(c.rightc!=null){
+						if(c.rightc==c.getParent().getParent())
+							idx = c.getParent().index+1;
+						else
+							idx = 0;
+						c = c.rightc;
+						cursor.setCursor(c,idx,c,idx);
+					}
+				}
+			}
+		}
+		public function mvUp():void{
+			var c:FMEContainer = cursor.getContainer();
+			if(c.upc!=null){
+				c = c.upc;
+				cursor.setCursor(c,0,c,0);
+			}
+		}
+		public function mvDown():void{
+			var c:FMEContainer = cursor.getContainer();
+			if(c.downc!=null){
+				c = c.downc;
+				cursor.setCursor(c,0,c,0);
+			}
+		}
 		public function getLatex():String{
 			return content.getLatex(0,content.length());
 		}

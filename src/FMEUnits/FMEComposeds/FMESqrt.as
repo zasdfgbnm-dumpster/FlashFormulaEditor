@@ -25,7 +25,10 @@ package FMEUnits.FMEComposeds
 				exp = new FMEContainer(this,who.level+1);
 				addChild(exp);
 				exp.ins(0,expLatex);
-			}
+				radix.setLRUD(exp,who,exp,null);
+				exp.setLRUD(who,radix,null,radix);
+			}else
+				radix.setLRUD(who,who,null,null);
 			updateLayout();
 			updateHitArea();
 			ignUpdate = false;

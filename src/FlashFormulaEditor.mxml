@@ -48,6 +48,18 @@
 				scr.paste();
 				update_screen();
 			}
+			protected function mvLeft():void{
+				scr.mvLeft();
+			}
+			protected function mvRight():void{
+				scr.mvRight();
+			}
+			protected function mvUp():void{
+				scr.mvUp();
+			}
+			protected function mvDown():void{
+				scr.mvDown();
+			}
 			public function getLatex():String{
 				return scr.getLatex();
 			}	
@@ -113,6 +125,18 @@
 						break;
 					case Keyboard.BACKSPACE:
 						backspace();
+						break;
+					case Keyboard.LEFT:
+						mvLeft();
+						break;
+					case Keyboard.RIGHT:
+						mvRight();
+						break;
+					case Keyboard.UP:
+						mvUp();
+						break;
+					case Keyboard.DOWN:
+						mvDown();
 						break;
 					case Keyboard.C:
 						if(event.ctrlKey)
@@ -631,8 +655,8 @@
 					  fontFamily="Times New Roman" fontSize="20" fontStyle="normal"/>
 		</s:NavigatorContent>
 	</mx:TabNavigator>
-	<s:BorderContainer id="screen_container" x="10" y="10" width="455" height="140"
-					   click="get_focus(event)" keyDown="key_handler(event)">
+	<s:BorderContainer id="screen_container" x="10" y="10" width="455" height="140" keyDown="key_handler(event)"
+					   click="get_focus(event)">
 		<s:SWFLoader id="fmescreen" x="0" y="0" width="453" height="138"/>
 	</s:BorderContainer>
 </s:Application>

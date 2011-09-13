@@ -26,6 +26,7 @@ package FMEUnits.FMEComposeds
 			this.rspace = rspace;
 			body = new FMEContainer(this,who.level+1);
 			body.ins(0,bodyLatex);
+			body.setLRUD(who,who,null,null);
 			addChild(left);
 			addChild(right);
 			addChild(body);

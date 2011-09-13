@@ -1,7 +1,6 @@
 package FMEUnits
 {
 	import flash.display.Sprite;
-	import flash.events.MouseEvent;
 
 	public class FMESvgChar extends FMEUnit
 	{
@@ -13,7 +12,6 @@ package FMEUnits
 		private var svg:Class;
 		private var ch:Number;
 		private var latex:String;
-		private var cur:FMECursor = FMEScreen.scr.cursor;
 		public function FMESvgChar(who:FMEContainer,lspace:Number,rspace:Number,uspace:Number,dspace:Number,svg:Class,ch:Number,latex:String){
 			super(who);
 			this.lspace = lspace;
@@ -24,34 +22,6 @@ package FMEUnits
 			this.ch = ch;
 			this.latex = latex;
 			init();
-		}
-		private function mouseDownHandler(event:MouseEvent):void{
-			var idx:int = event.localX<=hitArea.x+hitArea.width/2?index:index+1;
-			cur.mouseMoveEnabled = true;
-			if(!event.shiftKey){
-				var p:FMEContainer = getParent();
-				cur.setCursor(p,idx,p,idx);
-			}
-			event.stopPropagation();
-		}
-		private function mouseUpHandler(event:MouseEvent):void{
-			var idx:int = event.localX<=hitArea.x+hitArea.width/2?index:index+1;
-			cur.mouseMoveEnabled = false;
-			cur.setEnd(getParent(),idx);
-			event.stopPropagation();
-		}
-		private function mouseMoveHandler(event:MouseEvent):void{
-			var idx:int = event.localX<=hitArea.x+hitArea.width/2?index:index+1;
-			if(event.buttonDown){
-				if(cur.mouseMoveEnabled)
-					cur.setEnd(getParent(),idx);
-			}else{
-				if(cur.mouseMoveEnabled){
-					cur.setEnd(getParent(),idx);
-					cur.mouseMoveEnabled = false;
-				}
-			}
-			event.stopPropagation();
 		}
 		private function init():void{
 			graph = new svg();
@@ -75,9 +45,6 @@ package FMEUnits
 				hitArea.y = -uspace;
 				graph.y = 0;
 			}
-			addEventListener(MouseEvent.MOUSE_DOWN,mouseDownHandler);
-			addEventListener(MouseEvent.MOUSE_MOVE,mouseMoveHandler);
-			addEventListener(MouseEvent.MOUSE_UP,mouseUpHandler);
 		}
 		public override function get cheight():Number{
 			return ch+uspace;

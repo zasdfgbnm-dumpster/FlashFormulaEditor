@@ -26,6 +26,9 @@ package FMEUnits.FMEComposeds
 			_set.ins(0,setLatex);
 			addChild(_set);
 			
+			main.setLRUD(who,who,null,_set);
+			_set.setLRUD(who,who,main,null);
+			
 			updateLayout();
 			updateHitArea();
 			ignUpdate = false;

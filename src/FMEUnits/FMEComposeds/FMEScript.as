@@ -36,6 +36,16 @@ package FMEUnits.FMEComposeds
 				subscript.ins(0,subscriptLatex);
 				addChild(subscript);
 			}
+			var udown:FMEContainer = (subscript==null?null:subscript);
+			var dup:FMEContainer = (superscript==null?null:superscript);
+			if(superscript!=null){
+				superscript.setLRUD(main,who,null,udown);
+				main.setLRUD(who,superscript,dup,udown);
+			}
+			if(subscript!=null){
+				subscript.setLRUD(main,who,dup,null);
+				main.setLRUD(who,subscript,dup,udown);
+			}
 			updateLayout();
 			updateHitArea();
 			ignUpdate = false;
