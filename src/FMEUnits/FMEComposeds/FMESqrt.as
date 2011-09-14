@@ -42,7 +42,7 @@ package FMEUnits.FMEComposeds
 				exp.scaleX = erRatio;
 				exp.scaleY = erRatio;
 				exp.x = lspace + (exp.width-radSign.expLocalX>0?0:radSign.expLocalX-exp.width);
-				exp.y = lspace + (exp.height-radSign.expLocalY>0?0:exp.height-radSign.expLocalY)
+				exp.y = uspace + (exp.height-radSign.expLocalY>0?0:radSign.expLocalY-exp.height)
 			}
 			radSign.y = uspace + ((exp!=null&&exp.height-radSign.expLocalY>0)?exp.height-radSign.expLocalY:0);
 			radSign.x = lspace + ((exp!=null&&exp.width-radSign.expLocalX>0)?exp.width-radSign.expLocalX:0);
@@ -87,7 +87,7 @@ class RadicalSign extends Sprite{
 	private const radRSpace:Number = 0;
 	private const lineThickness:Number = 3.3445;
 	private const expLocalXRatio:Number = 0.5;
-	private const expLocalYRatio:Number = 0.5;
+	private const expLocalYRatio:Number = 0.3;
 	private const lineBeginX:Number = 47;
 	public function RadicalSign(radWidth:Number,radHeight:Number){
 		addChild(svg);

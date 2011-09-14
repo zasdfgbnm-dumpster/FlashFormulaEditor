@@ -61,7 +61,7 @@
 				scr.mvDown();
 			}
 			public function getLatex():String{
-				return scr.getLatex();
+				return scr.getLatex().replace("\\","\\\\");
 			}	
 			protected function get_focus(event:MouseEvent):void{
 				stage.focus = screen_container;
