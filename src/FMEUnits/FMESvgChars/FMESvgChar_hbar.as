@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar_hbar(who:FMEContainer)
 		{
-			super(who,7.9835,4.41942,0,0,svg,46.46,"\\hbar");
+			super(who,2.417,3.688,0,0,svg,47.925,"\\hbar");
 		}
 	}
 }

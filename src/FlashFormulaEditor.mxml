@@ -315,8 +315,8 @@
 					  fontFamily="Cambria" fontSize="20"/>
 			<s:Button x="133" y="60" width="35" height="35" label="∃" click="ins(&quot;\\exists&quot;)"
 					  fontFamily="Cambria" fontSize="20"/>
-			<s:Button x="54" y="165" width="35" height="35" label="ℏ" click="ins(&quot;\\hbar&quot;)"
-					  fontFamily="Cambria" fontSize="25"/>
+			<s:Button x="54" y="165" width="35" height="35" label="ћ" click="ins(&quot;\\hbar&quot;)"
+					  fontFamily="Cambria" fontSize="25" fontStyle="italic"/>
 			<s:Button x="89" y="165" width="44" height="35" label="↦" click="ins(&quot;\\mapsto&quot;)"
 					  fontFamily="Cambria" fontSize="20"/>
 		</s:NavigatorContent>

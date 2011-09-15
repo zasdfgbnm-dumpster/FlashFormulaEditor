@@ -86,7 +86,7 @@ class RadicalSign extends Sprite{
 	private const radLSpace:Number = 3.3445;
 	private const radRSpace:Number = 0;
 	private const lineThickness:Number = 3.3445;
-	private const expLocalXRatio:Number = 0.5;
+	private const expLocalXRatio:Number = 0.7;
 	private const expLocalYRatio:Number = 0.3;
 	private const lineBeginX:Number = 47;
 	public function RadicalSign(radWidth:Number,radHeight:Number){
