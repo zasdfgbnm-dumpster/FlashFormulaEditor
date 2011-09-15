@@ -252,9 +252,9 @@
 			<s:Button x="373" y="25" width="35" height="35" label="!" click="ins(&quot;!&quot;)"
 					  fontFamily="Cambria" fontSize="20"/>
 			<s:Button x="339" y="60" width="35" height="35" label="(" click="ins(&quot;(&quot;)"
-					  fontFamily="Cambria" fontSize="20"/>
+					  fontFamily="Times New Roman" fontSize="20"/>
 			<s:Button x="373" y="60" width="35" height="35" label=")" click="ins(&quot;)&quot;)"
-					  fontFamily="Cambria" fontSize="20"/>
+					  fontFamily="Times New Roman" fontSize="20"/>
 			<s:Button x="339" y="95" width="35" height="35" label="[" click="ins(&quot;[&quot;)"
 					  fontFamily="Cambria" fontSize="20"/>
 			<s:Button x="373" y="95" width="35" height="35" label="]" click="ins(&quot;]&quot;)"
