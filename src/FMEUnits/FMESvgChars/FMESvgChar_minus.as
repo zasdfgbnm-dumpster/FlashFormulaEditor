@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar_minus(who:FMEContainer)
 		{
-			super(who,4.17552,4.02855,0,0,svg,3.784,"-");
+			super(who,4.17552,4.02855,0,0,svg,5.712,"-");
 		}
 	}
 }
