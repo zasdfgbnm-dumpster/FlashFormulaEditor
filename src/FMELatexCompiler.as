@@ -165,88 +165,19 @@ package
 			resultArr.push(result);
 			return Latex;
 		}
-		private static  function testScript(Latex:String,who:FMEContainer,array:Array):String{
+		private static function testUnderOverset(Latex:String,who:FMEContainer,array:Array):String{
 			var origin:String = Latex;
-			var tmporigin:String;
-			var len:int = Latex.length;
-			var main:String = null;
-			var superscript:String = null;
-			var subscript:String = null;
-			var resultArr:Array = new Array();
-			
-			Latex = testMatched("\\{","\\}",Latex,resultArr);
-			if(Latex.length==len)
-				return origin;
-			main = resultArr.pop();
-			
-			if(Latex.charAt(0)=="^"){
-				Latex = Latex.substr(1);
-				len = Latex.length;
-				Latex = testMatched("\\{","\\}",Latex,resultArr);
-				if(Latex.length==len)
-					return origin;
-				superscript = resultArr.pop();
-				
-				if(Latex.charAt(0)=="_"){
-					tmporigin = Latex;
-					Latex = Latex.substr(1);
-					len = Latex.length;
-					Latex = testMatched("\\{","\\}",Latex,resultArr);
-					if(Latex.length==len)
-						Latex = tmporigin;
-					else
-						subscript = resultArr.pop();
-				}
-			}else if(Latex.charAt(0)=="_"){
-				Latex = Latex.substr(1);
-				len = Latex.length;
-				Latex = testMatched("\\{","\\}",Latex,resultArr);
-				if(Latex.length==len)
-					return origin;
-				subscript = resultArr.pop();
-				
-				if(Latex.charAt(0)=="^"){
-					tmporigin = Latex;
-					Latex = Latex.substr(1);
-					len = Latex.length;
-					Latex = testMatched("\\{","\\}",Latex,resultArr);
-					if(Latex.length==len)
-						Latex = tmporigin;
-					else
-						superscript = resultArr.pop();
-				}
-			}else{
-				return origin;
-			}
-			array.push(new FMEScript(who,main,superscript,subscript));
-			return Latex;
-		}
-		private static function testOverset(Latex:String,who:FMEContainer,array:Array):String{
-			var origin:String = Latex;
+			var type:Class;
 			var overset:RegExp = /(?<=^\\overset).*/g;
-			var matches:Array = Latex.match(overset);
-			if(matches.length!=0){
-				Latex = matches[0];
-				var main:String;
-				var _set:String;
-				var resultArr:Array = new Array();
-				var len:int = Latex.length;
-				Latex = testMatched("\\{","\\}",Latex,resultArr);
-				if(Latex.length==len)
-					return origin;
-				main = resultArr.pop();
-				Latex = testMatched("\\{","\\}",Latex,resultArr);
-				if(Latex.length==len)
-					return origin;
-				_set = resultArr.pop();
-				array.push(new FMEOverset(who,main,_set));
-			}
-			return Latex;
-		}
-		private static function testUnderset(Latex:String,who:FMEContainer,array:Array):String{
-			var origin:String = Latex;
 			var underset:RegExp =  new RegExp("(?<=^\\\\underset).*","g");
-			var matches:Array = Latex.match(underset);
+			var matches:Array = Latex.match(overset);
+			if(matches.length!=0)
+				type = FMEOverset;
+			else{
+				matches = Latex.match(underset);
+				if(matches.length!=0)
+					type = FMEUnderset
+			}
 			if(matches.length!=0){
 				Latex = matches[0];
 				var main:String;
@@ -261,7 +192,7 @@ package
 				if(Latex.length==len)
 					return origin;
 				_set = resultArr.pop();
-				array.push(new FMEUnderset(who,main,_set));
+				array.push(new type(who,main,_set));
 			}
 			return Latex;
 		}
@@ -287,7 +218,6 @@ package
 				new RegExp("^\\\\(liminf|dim|csc|lim|hom|arcsin|sup)(?![a-zA-Z])","g"),
 				new RegExp("^\\\\(ker|arccos|inf|max|arctan|log|min)(?![a-zA-Z])","g"),
 				new RegExp("^\\\\(sin|ln|arg)(?![a-zA-Z])","g")
-				//new RegExp("^\\\\()(?![a-zA-Z])","g"),
 				//new RegExp("^\\\\()(?![a-zA-Z])","g"),
 			];
 			for each(var reg:RegExp in regs){
@@ -319,37 +249,99 @@ package
 			}
 			return Latex;
 		}
-		private static function testMatchedBracket(Latex:String,who:FMEContainer,array:Array):String{
+		private static function testMatchedBrackets(Latex:String,who:FMEContainer,array:Array):String{
 			var body:String;
 			var resultArr:Array = new Array();
+			var type:Class;
 			var len:int = Latex.length;
 			Latex = testMatched("\\\\left\\s*\\[","\\\\right\\s*\\]",Latex,resultArr);
-			if(Latex.length!=len){
-				body = resultArr.pop();
-				array.push(new FMEMatchedBracket(who,body));
+			if(Latex.length!=len)
+				type = FMEMatchedBracket;
+			else{
+				Latex = testMatched("\\\\left\\s*\\(","\\\\right\\s*\\)",Latex,resultArr);
+				if(Latex.length!=len)
+					type = FMEMatchedParen;
+				else{
+					Latex = testMatched("\\\\left\\s*\\\\{","\\\\right\\s*\\\\}",Latex,resultArr);
+					if(Latex.length!=len)
+						type = FMEMatchedCurly;
+					else
+						return Latex;
+				}
 			}
+			body = resultArr.pop();
+			array.push(new type(who,body));
 			return Latex;
 		}
-		private static function testMatchedParen(Latex:String,who:FMEContainer,array:Array):String{
-			var body:String;
-			var resultArr:Array = new Array();
+		private static function testSumProdScript(Latex:String,who:FMEContainer,array:Array):String{
+			var origin:String = Latex;
+			var tmporigin:String;
+			var sum:RegExp = /(?<=^\\sum).*/g;
+			var prod:RegExp = /(?<=^\\prod).*/g;
+			var main:String;
+			var matches:Array = Latex.match(sum);
 			var len:int = Latex.length;
-			Latex = testMatched("\\\\left\\s*\\(","\\\\right\\s*\\)",Latex,resultArr);
-			if(Latex.length!=len){
-				body = resultArr.pop();
-				array.push(new FMEMatchedParen(who,body));
-			}
-			return Latex;
-		}
-		private static function testMatchedCurly(Latex:String,who:FMEContainer,array:Array):String{
-			var body:String;
+			var up:String = null;
+			var down:String = null;
 			var resultArr:Array = new Array();
-			var len:int = Latex.length;
-			Latex = testMatched("\\\\left\\s*\\\\{","\\\\right\\s*\\\\}",Latex,resultArr);
-			if(Latex.length!=len){
-				body = resultArr.pop();
-				array.push(new FMEMatchedCurly(who,body));
+			var type:Class;
+			if(matches.length!=0){
+				type = FMESum;
+				Latex = matches.pop();
+			}else{
+				matches = Latex.match(prod);
+				if(matches.length!=0){
+					type = FMEProd;
+					Latex = matches.pop();
+				}else{
+					Latex = testMatched("\\{","\\}",Latex,resultArr);
+					if(Latex.length!=len){
+						main = resultArr.pop();
+						type = FMEScript;
+					}else
+						return origin;
+				}
 			}
+			if(Latex.charAt(0)=="^"){
+				Latex = Latex.substr(1);
+				len = Latex.length;
+				Latex = testMatched("\\{","\\}",Latex,resultArr);
+				if(Latex.length==len)
+					return origin;
+				up = resultArr.pop();
+				
+				if(Latex.charAt(0)=="_"){
+					tmporigin = Latex;
+					Latex = Latex.substr(1);
+					len = Latex.length;
+					Latex = testMatched("\\{","\\}",Latex,resultArr);
+					if(Latex.length==len)
+						Latex = tmporigin;
+					else
+						down = resultArr.pop();
+				}
+			}else if(Latex.charAt(0)=="_"){
+				Latex = Latex.substr(1);
+				len = Latex.length;
+				Latex = testMatched("\\{","\\}",Latex,resultArr);
+				if(Latex.length==len)
+					return origin;
+				down = resultArr.pop();
+				
+				if(Latex.charAt(0)=="^"){
+					tmporigin = Latex;
+					Latex = Latex.substr(1);
+					len = Latex.length;
+					Latex = testMatched("\\{","\\}",Latex,resultArr);
+					if(Latex.length==len)
+						Latex = tmporigin;
+					else
+						up = resultArr.pop();
+				}
+			}else{
+				return origin;
+			}
+			array.push(type==FMEScript?new type(who,main,up,down):new type(who,up,down));
 			return Latex;
 		}
 		private static function clearLeftSpace(Latex:String):String{
@@ -359,16 +351,13 @@ package
 			var len:int;
 			var arr:Array = new Array;
 			while((len=(Latex=clearLeftSpace(Latex)).length)>0){
+				Latex = testSumProdScript(Latex,who,arr);
 				Latex = testFraction(Latex,who,arr);
 				Latex = testSqrt(Latex,who,arr);
-				Latex = testScript(Latex,who,arr);
-				Latex = testOverset(Latex,who,arr);
-				Latex = testUnderset(Latex,who,arr);
+				Latex = testUnderOverset(Latex,who,arr);
 				Latex = testEscChar(Latex,who,arr);
 				Latex = testVec(Latex,who,arr);
-				Latex = testMatchedBracket(Latex,who,arr);
-				Latex = testMatchedParen(Latex,who,arr);
-				Latex = testMatchedCurly(Latex,who,arr);
+				Latex = testMatchedBrackets(Latex,who,arr);
 				if(Latex.length==len)
 					Latex = testFirstAsPlainOrSkip(Latex,who,arr);
 			}

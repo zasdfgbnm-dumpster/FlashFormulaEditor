@@ -61,7 +61,7 @@
 				scr.mvDown();
 			}
 			public function getLatex():String{
-				return scr.getLatex().replace("\\","\\\\");
+				return scr.getLatex().replace(/\\/g,"\\\\");
 			}	
 			protected function get_focus(event:MouseEvent):void{
 				stage.focus = screen_container;
@@ -561,13 +561,13 @@
 					   skinClass="icon_button_skin.curly"/>
 			<s:Button x="159" y="58" width="71" height="50" click="ins(&quot;\\left(\\right)&quot;)"
 					   skinClass="icon_button_skin.paren"/>
-			<s:Button x="104" y="115" width="52" height="100" click="ins(&quot;\\underset{\\overset{\\prod}{}}{}&quot;)"
+			<s:Button x="104" y="115" width="52" height="100" click="ins(&quot;\\prod^{}_{}&quot;)"
 					   skinClass="icon_button_skin.prod"/>
 			<s:Button x="230" y="58" width="71" height="50" click="ins(&quot;\\sqrt{}&quot;)"
 					   skinClass="icon_button_skin.sqrt"/>
 			<s:Button x="301" y="58" width="67" height="50" click="ins(&quot;\\sqrt[]{}&quot;)"
 					   skinClass="icon_button_skin.sqrtn"/>
-			<s:Button x="156" y="115" width="51" height="100" click="ins(&quot;\\underset{\\overset{\\sum}{}}{}&quot;)"
+			<s:Button x="156" y="115" width="51" height="100" click="ins(&quot;\\sum^{}_{}&quot;)"
 					   skinClass="icon_button_skin.sum"/>
 			<s:Button x="207" y="115" width="65" height="100" click="ins(&quot;{\\int}^{}_{}&quot;)"
 					   skinClass="icon_button_skin.dint"/>
