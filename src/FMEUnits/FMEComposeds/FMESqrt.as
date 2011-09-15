@@ -65,7 +65,7 @@ package FMEUnits.FMEComposeds
 			y = ay;
 		}
 		override public function get aheight():Number{
-			return uspace+radSign.height+dspace;
+			return uspace+((exp!=null&&exp.height-radSign.expLocalY>0)?exp.height-radSign.expLocalY:0)+radSign.height+dspace;
 		}
 		override public function get awidth():Number{
 			return lspace+radSign.width+(exp!=null&&exp.width-radSign.expLocalX>0?exp.width-radSign.expLocalX:0)+rspace;

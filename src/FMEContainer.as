@@ -84,7 +84,8 @@ package
 			for(;start<end;start++){
 				curlatex = (content[start] as FMEUnit).Latex;
 				if(prevlatex!=null&&prevlatex.length!=0){
-					if(prevlatex.charAt(0)=="\\"&&prevlatex.charAt(prevlatex.length-1).match(/[a-zA-Z]/g).length>0){
+					if(prevlatex.charAt(0)=="\\"&&prevlatex.charAt(prevlatex.length-1).match(/[a-zA-Z]/g).length>0
+						&&curlatex.charAt(0).match(/[a-zA-Z]/g).length>0){
 						latex += " ";
 					}
 				}
