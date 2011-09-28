@@ -4,10 +4,10 @@ package FMEUnits.FMEComposeds
 	
 	public class FMEMatchedCurly extends FMEMatched
 	{
-		[Embed(source="svgs/open_curly.svg")]
+		[Embed(source="/svgs/open_curly.svg")]
 		private var ocurlyClass:Class;
 		private var ocurly:Sprite = new ocurlyClass();
-		[Embed(source="svgs/close_curly.svg")]
+		[Embed(source="/svgs/close_curly.svg")]
 		private var ccurlyClass:Class;
 		private var ccurly:Sprite = new ccurlyClass();
 		private const lbSpace:Number = 6.9575;

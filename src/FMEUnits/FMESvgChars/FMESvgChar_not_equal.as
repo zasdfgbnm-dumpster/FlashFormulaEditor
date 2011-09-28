@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_not_equal extends FMESvgChar
 	{
-		[Embed(source="svgs/not_equal.svg")]
+		[Embed(source="/svgs/not_equal.svg")]
 		public var svg:Class;
 		public function FMESvgChar_not_equal(who:FMEContainer)
 		{

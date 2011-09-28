@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Upsilon extends FMESvgChar
 	{
-		[Embed(source="svgs/_Upsilon.svg")]
+		[Embed(source="/svgs/_Upsilon.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Upsilon(who:FMEContainer)
 		{

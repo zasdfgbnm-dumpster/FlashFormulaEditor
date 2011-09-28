@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_cap extends FMESvgChar
 	{
-		[Embed(source="svgs/cap.svg")]
+		[Embed(source="/svgs/cap.svg")]
 		public var svg:Class;
 		public function FMESvgChar_cap(who:FMEContainer)
 		{

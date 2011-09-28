@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_comma extends FMESvgChar
 	{
-		[Embed(source="svgs/comma.svg")]
+		[Embed(source="/svgs/comma.svg")]
 		public var svg:Class;
 		public function FMESvgChar_comma(who:FMEContainer)
 		{

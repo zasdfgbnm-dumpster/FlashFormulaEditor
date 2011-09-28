@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_6 extends FMESvgChar
 	{
-		[Embed(source="svgs/6.svg")]
+		[Embed(source="/svgs/6.svg")]
 		public var svg:Class;
 		public function FMESvgChar_6(who:FMEContainer)
 		{

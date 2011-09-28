@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Theta extends FMESvgChar
 	{
-		[Embed(source="svgs/_Theta.svg")]
+		[Embed(source="/svgs/_Theta.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Theta(who:FMEContainer)
 		{

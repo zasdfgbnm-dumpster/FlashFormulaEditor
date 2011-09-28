@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_propto extends FMESvgChar
 	{
-		[Embed(source="svgs/propto.svg")]
+		[Embed(source="/svgs/propto.svg")]
 		public var svg:Class;
 		public function FMESvgChar_propto(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_percent extends FMESvgChar
 	{
-		[Embed(source="svgs/percent.svg")]
+		[Embed(source="/svgs/percent.svg")]
 		public var svg:Class;
 		public function FMESvgChar_percent(who:FMEContainer)
 		{

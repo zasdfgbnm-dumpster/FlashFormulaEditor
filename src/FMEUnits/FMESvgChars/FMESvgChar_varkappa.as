@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_varkappa extends FMESvgChar
 	{
-		[Embed(source="svgs/varkappa.svg")]
+		[Embed(source="/svgs/varkappa.svg")]
 		public var svg:Class;
 		public function FMESvgChar_varkappa(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_pound extends FMESvgChar
 	{
-		[Embed(source="svgs/pound.svg")]
+		[Embed(source="/svgs/pound.svg")]
 		public var svg:Class;
 		public function FMESvgChar_pound(who:FMEContainer)
 		{

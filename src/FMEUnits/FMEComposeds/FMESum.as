@@ -4,7 +4,7 @@ package FMEUnits.FMEComposeds
 	
 	public class FMESum extends FMESumProd
 	{
-		[Embed(source="svgs/sum.svg")]
+		[Embed(source="/svgs/sum.svg")]
 		private var opcls:Class;
 		private var op:Sprite = new opcls();
 		public function FMESum(who:FMEContainer, upLatex:String, downLatex:String)

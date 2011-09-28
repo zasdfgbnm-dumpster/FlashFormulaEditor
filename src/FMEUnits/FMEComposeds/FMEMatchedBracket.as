@@ -4,10 +4,10 @@ package FMEUnits.FMEComposeds
 	
 	public class FMEMatchedBracket extends FMEMatched
 	{
-		[Embed(source="svgs/open_bracket.svg")]
+		[Embed(source="/svgs/open_bracket.svg")]
 		private var obracketClass:Class;
 		private var obracket:Sprite = new obracketClass();
-		[Embed(source="svgs/close_bracket.svg")]
+		[Embed(source="/svgs/close_bracket.svg")]
 		private var cbracketClass:Class;
 		private var cbracket:Sprite = new cbracketClass();
 		private const lbSpace:Number = 3.78453;

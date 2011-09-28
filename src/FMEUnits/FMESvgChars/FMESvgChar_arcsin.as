@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_arcsin extends FMESvgChar
 	{
-		[Embed(source="svgs/arcsin.svg")]
+		[Embed(source="/svgs/arcsin.svg")]
 		public var svg:Class;
 		public function FMESvgChar_arcsin(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_varrho extends FMESvgChar
 	{
-		[Embed(source="svgs/varrho.svg")]
+		[Embed(source="/svgs/varrho.svg")]
 		public var svg:Class;
 		public function FMESvgChar_varrho(who:FMEContainer)
 		{

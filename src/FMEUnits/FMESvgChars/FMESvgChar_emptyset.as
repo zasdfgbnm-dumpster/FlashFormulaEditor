@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_emptyset extends FMESvgChar
 	{
-		[Embed(source="svgs/emptyset.svg")]
+		[Embed(source="/svgs/emptyset.svg")]
 		public var svg:Class;
 		public function FMESvgChar_emptyset(who:FMEContainer)
 		{

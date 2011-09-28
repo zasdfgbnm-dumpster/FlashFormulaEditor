@@ -4,10 +4,10 @@ package FMEUnits.FMEComposeds
 	
 	public class FMEMatchedParen extends FMEMatched
 	{
-		[Embed(source="svgs/open_paren.svg")]
+		[Embed(source="/svgs/open_paren.svg")]
 		private var oparenClass:Class;
 		private var oparen:Sprite = new oparenClass();
-		[Embed(source="svgs/close_paren.svg")]
+		[Embed(source="/svgs/close_paren.svg")]
 		private var cparenClass:Class;
 		private var cparen:Sprite = new cparenClass();
 		private const lbSpace:Number = 2.27049;

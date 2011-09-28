@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_delta extends FMESvgChar
 	{
-		[Embed(source="svgs/delta.svg")]
+		[Embed(source="/svgs/delta.svg")]
 		public var svg:Class;
 		public function FMESvgChar_delta(who:FMEContainer)
 		{

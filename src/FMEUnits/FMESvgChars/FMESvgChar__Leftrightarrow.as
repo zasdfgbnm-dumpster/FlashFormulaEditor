@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Leftrightarrow extends FMESvgChar
 	{
-		[Embed(source="svgs/_Leftrightarrow.svg")]
+		[Embed(source="/svgs/_Leftrightarrow.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Leftrightarrow(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_nabla extends FMESvgChar
 	{
-		[Embed(source="svgs/nabla.svg")]
+		[Embed(source="/svgs/nabla.svg")]
 		public var svg:Class;
 		public function FMESvgChar_nabla(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_divide extends FMESvgChar
 	{
-		[Embed(source="svgs/divide.svg")]
+		[Embed(source="/svgs/divide.svg")]
 		public var svg:Class;
 		public function FMESvgChar_divide(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_exists extends FMESvgChar
 	{
-		[Embed(source="svgs/exists.svg")]
+		[Embed(source="/svgs/exists.svg")]
 		public var svg:Class;
 		public function FMESvgChar_exists(who:FMEContainer)
 		{

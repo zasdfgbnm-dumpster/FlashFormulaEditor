@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Zeta extends FMESvgChar
 	{
-		[Embed(source="svgs/_Zeta.svg")]
+		[Embed(source="/svgs/_Zeta.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Zeta(who:FMEContainer)
 		{

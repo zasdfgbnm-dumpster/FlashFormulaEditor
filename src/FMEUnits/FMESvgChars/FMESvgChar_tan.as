@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_tan extends FMESvgChar
 	{
-		[Embed(source="svgs/tan.svg")]
+		[Embed(source="/svgs/tan.svg")]
 		public var svg:Class;
 		public function FMESvgChar_tan(who:FMEContainer)
 		{

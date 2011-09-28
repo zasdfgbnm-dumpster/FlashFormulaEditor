@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_mapsto extends FMESvgChar
 	{
-		[Embed(source="svgs/mapsto.svg")]
+		[Embed(source="/svgs/mapsto.svg")]
 		public var svg:Class;
 		public function FMESvgChar_mapsto(who:FMEContainer)
 		{

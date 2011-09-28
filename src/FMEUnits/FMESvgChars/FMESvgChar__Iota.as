@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Iota extends FMESvgChar
 	{
-		[Embed(source="svgs/_Iota.svg")]
+		[Embed(source="/svgs/_Iota.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Iota(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_liminf extends FMESvgChar
 	{
-		[Embed(source="svgs/liminf.svg")]
+		[Embed(source="/svgs/liminf.svg")]
 		public var svg:Class;
 		public function FMESvgChar_liminf(who:FMEContainer)
 		{

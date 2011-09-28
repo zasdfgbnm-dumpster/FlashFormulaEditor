@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_tau extends FMESvgChar
 	{
-		[Embed(source="svgs/tau.svg")]
+		[Embed(source="/svgs/tau.svg")]
 		public var svg:Class;
 		public function FMESvgChar_tau(who:FMEContainer)
 		{

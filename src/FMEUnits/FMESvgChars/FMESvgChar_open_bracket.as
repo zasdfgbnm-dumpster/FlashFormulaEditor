@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_open_bracket extends FMESvgChar
 	{
-		[Embed(source="svgs/open_bracket.svg")]
+		[Embed(source="/svgs/open_bracket.svg")]
 		public var svg:Class;
 		public function FMESvgChar_open_bracket(who:FMEContainer)
 		{

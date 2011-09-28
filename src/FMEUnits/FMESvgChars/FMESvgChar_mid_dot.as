@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_mid_dot extends FMESvgChar
 	{
-		[Embed(source="svgs/mid_dot.svg")]
+		[Embed(source="/svgs/mid_dot.svg")]
 		public var svg:Class;
 		public function FMESvgChar_mid_dot(who:FMEContainer)
 		{

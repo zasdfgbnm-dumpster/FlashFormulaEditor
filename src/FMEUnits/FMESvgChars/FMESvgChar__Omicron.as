@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Omicron extends FMESvgChar
 	{
-		[Embed(source="svgs/_Omicron.svg")]
+		[Embed(source="/svgs/_Omicron.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Omicron(who:FMEContainer)
 		{

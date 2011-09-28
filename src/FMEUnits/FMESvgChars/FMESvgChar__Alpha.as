@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar__Alpha extends FMESvgChar
 	{
-		[Embed(source="svgs/_Alpha.svg")]
+		[Embed(source="/svgs/_Alpha.svg")]
 		public var svg:Class;
 		public function FMESvgChar__Alpha(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_more_eq extends FMESvgChar
 	{
-		[Embed(source="svgs/more_eq.svg")]
+		[Embed(source="/svgs/more_eq.svg")]
 		public var svg:Class;
 		public function FMESvgChar_more_eq(who:FMEContainer)
 		{

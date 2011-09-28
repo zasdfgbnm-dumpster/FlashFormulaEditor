@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_semicolon extends FMESvgChar
 	{
-		[Embed(source="svgs/semicolon.svg")]
+		[Embed(source="/svgs/semicolon.svg")]
 		public var svg:Class;
 		public function FMESvgChar_semicolon(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_double_quotation extends FMESvgChar
 	{
-		[Embed(source="svgs/double_quotation.svg")]
+		[Embed(source="/svgs/double_quotation.svg")]
 		public var svg:Class;
 		public function FMESvgChar_double_quotation(who:FMEContainer)
 		{

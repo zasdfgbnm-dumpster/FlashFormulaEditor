@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_subsetneq extends FMESvgChar
 	{
-		[Embed(source="svgs/subsetneq.svg")]
+		[Embed(source="/svgs/subsetneq.svg")]
 		public var svg:Class;
 		public function FMESvgChar_subsetneq(who:FMEContainer)
 		{

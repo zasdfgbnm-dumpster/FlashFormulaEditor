@@ -200,7 +200,7 @@ import flash.events.MouseEvent;
 class boxClass extends Sprite{
 	public static const h:Number = 70;
 	public static const lspace:Number = 5;
-	[Embed(source="svgs/box.svg")]
+	[Embed(source="/svgs/box.svg")]
 	private var svgBox:Class;
 	private var svg:Sprite = new svgBox();
 	public function boxClass(){

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_sin extends FMESvgChar
 	{
-		[Embed(source="svgs/sin.svg")]
+		[Embed(source="/svgs/sin.svg")]
 		public var svg:Class;
 		public function FMESvgChar_sin(who:FMEContainer)
 		{

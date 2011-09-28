@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_backslash extends FMESvgChar
 	{
-		[Embed(source="svgs/backslash.svg")]
+		[Embed(source="/svgs/backslash.svg")]
 		public var svg:Class;
 		public function FMESvgChar_backslash(who:FMEContainer)
 		{

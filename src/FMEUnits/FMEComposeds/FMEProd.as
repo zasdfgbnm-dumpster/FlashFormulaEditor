@@ -4,7 +4,7 @@ package FMEUnits.FMEComposeds
 	
 	public class FMEProd extends FMESumProd
 	{
-		[Embed(source="svgs/prod.svg")]
+		[Embed(source="/svgs/prod.svg")]
 		private var opcls:Class;
 		private var op:Sprite = new opcls();
 		public function FMEProd(who:FMEContainer, upLatex:String, downLatex:String)

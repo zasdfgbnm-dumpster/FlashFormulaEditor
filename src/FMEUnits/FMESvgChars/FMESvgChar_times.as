@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_times extends FMESvgChar
 	{
-		[Embed(source="svgs/times.svg")]
+		[Embed(source="/svgs/times.svg")]
 		public var svg:Class;
 		public function FMESvgChar_times(who:FMEContainer)
 		{

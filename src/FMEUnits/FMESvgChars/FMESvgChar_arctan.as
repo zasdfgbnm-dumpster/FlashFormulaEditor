@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_arctan extends FMESvgChar
 	{
-		[Embed(source="svgs/arctan.svg")]
+		[Embed(source="/svgs/arctan.svg")]
 		public var svg:Class;
 		public function FMESvgChar_arctan(who:FMEContainer)
 		{

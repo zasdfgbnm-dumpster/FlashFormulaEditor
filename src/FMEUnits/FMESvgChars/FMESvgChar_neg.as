@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_neg extends FMESvgChar
 	{
-		[Embed(source="svgs/neg.svg")]
+		[Embed(source="/svgs/neg.svg")]
 		public var svg:Class;
 		public function FMESvgChar_neg(who:FMEContainer)
 		{

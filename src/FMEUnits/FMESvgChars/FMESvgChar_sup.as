@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_sup extends FMESvgChar
 	{
-		[Embed(source="svgs/sup.svg")]
+		[Embed(source="/svgs/sup.svg")]
 		public var svg:Class;
 		public function FMESvgChar_sup(who:FMEContainer)
 		{

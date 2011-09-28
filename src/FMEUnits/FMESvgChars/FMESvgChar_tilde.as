@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_tilde extends FMESvgChar
 	{
-		[Embed(source="svgs/tilde.svg")]
+		[Embed(source="/svgs/tilde.svg")]
 		public var svg:Class;
 		public function FMESvgChar_tilde(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_lim extends FMESvgChar
 	{
-		[Embed(source="svgs/lim.svg")]
+		[Embed(source="/svgs/lim.svg")]
 		public var svg:Class;
 		public function FMESvgChar_lim(who:FMEContainer)
 		{

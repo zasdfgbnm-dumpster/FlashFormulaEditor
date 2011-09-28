@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_close_paren extends FMESvgChar
 	{
-		[Embed(source="svgs/close_paren.svg")]
+		[Embed(source="/svgs/close_paren.svg")]
 		public var svg:Class;
 		public function FMESvgChar_close_paren(who:FMEContainer)
 		{

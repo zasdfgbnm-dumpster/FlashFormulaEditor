@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_apostrophe extends FMESvgChar
 	{
-		[Embed(source="svgs/apostrophe.svg")]
+		[Embed(source="/svgs/apostrophe.svg")]
 		public var svg:Class;
 		public function FMESvgChar_apostrophe(who:FMEContainer)
 		{

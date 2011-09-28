@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_sum extends FMESvgChar
 	{
-		[Embed(source="svgs/sum.svg")]
+		[Embed(source="/svgs/sum.svg")]
 		public var svg:Class;
 		public function FMESvgChar_sum(who:FMEContainer)
 		{

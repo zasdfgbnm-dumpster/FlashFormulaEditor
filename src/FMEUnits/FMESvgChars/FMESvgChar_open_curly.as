@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_open_curly extends FMESvgChar
 	{
-		[Embed(source="svgs/open_curly.svg")]
+		[Embed(source="/svgs/open_curly.svg")]
 		public var svg:Class;
 		public function FMESvgChar_open_curly(who:FMEContainer)
 		{

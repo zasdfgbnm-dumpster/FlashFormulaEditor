@@ -12,7 +12,7 @@ package FMEUnits.FMEComposeds
 		private const uspace:Number = 3.3445;
 		private const dspace:Number = 3.3445;
 		private const vbSpace:Number = 3.3445;
-		[Embed(source="svgs/vec.svg")]
+		[Embed(source="/svgs/vec.svg")]
 		private var vecSgnClass:Class;
 		private var vecSgn:Sprite = new vecSgnClass();
 		public function FMEVec(who:FMEContainer,bodyLatex:String)

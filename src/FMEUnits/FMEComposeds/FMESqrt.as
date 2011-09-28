@@ -78,7 +78,7 @@ package FMEUnits.FMEComposeds
 import flash.display.Sprite;
 
 class RadicalSign extends Sprite{
-	[Embed(source="svgs/sqrt.svg")]
+	[Embed(source="/svgs/sqrt.svg")]
 	private var svgClass:Class;
 	private var svg:Sprite = new svgClass();
 	private const radUSpace:Number = 9;

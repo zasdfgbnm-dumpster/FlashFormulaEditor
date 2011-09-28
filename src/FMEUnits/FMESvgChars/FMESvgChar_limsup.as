@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_limsup extends FMESvgChar
 	{
-		[Embed(source="svgs/limsup.svg")]
+		[Embed(source="/svgs/limsup.svg")]
 		public var svg:Class;
 		public function FMESvgChar_limsup(who:FMEContainer)
 		{

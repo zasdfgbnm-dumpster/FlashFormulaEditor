@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_varpi extends FMESvgChar
 	{
-		[Embed(source="svgs/varpi.svg")]
+		[Embed(source="/svgs/varpi.svg")]
 		public var svg:Class;
 		public function FMESvgChar_varpi(who:FMEContainer)
 		{

@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_max extends FMESvgChar
 	{
-		[Embed(source="svgs/max.svg")]
+		[Embed(source="/svgs/max.svg")]
 		public var svg:Class;
 		public function FMESvgChar_max(who:FMEContainer)
 		{

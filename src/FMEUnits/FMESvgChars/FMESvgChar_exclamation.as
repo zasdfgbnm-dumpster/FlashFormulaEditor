@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_exclamation extends FMESvgChar
 	{
-		[Embed(source="svgs/exclamation.svg")]
+		[Embed(source="/svgs/exclamation.svg")]
 		public var svg:Class;
 		public function FMESvgChar_exclamation(who:FMEContainer)
 		{

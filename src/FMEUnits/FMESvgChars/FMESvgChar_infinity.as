@@ -4,7 +4,7 @@ package FMEUnits.FMESvgChars
 
 	public class FMESvgChar_infinity extends FMESvgChar
 	{
-		[Embed(source="svgs/infinity.svg")]
+		[Embed(source="/svgs/infinity.svg")]
 		public var svg:Class;
 		public function FMESvgChar_infinity(who:FMEContainer)
 		{
