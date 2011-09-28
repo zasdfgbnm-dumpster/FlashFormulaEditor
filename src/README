@@ -1,0 +1,7 @@
+How to build:
+
+Linux:
+Edit the Makefile and change the path of mxmlc to your own.
+Then, excute the command:
+	make
+this will generete FlashFormulaEditor.swf
