@@ -53,7 +53,7 @@ package FMEUnits.FMEComposeds
 			return uspace+vecSgn.height+vbSpace+body.height+dspace;
 		}
 		override public function get awidth():Number{
-			return body.width;
+			return lspace+body.width+rspace;
 		}
 		override public function get Latex():String{
 			return "\\vec{"+body.getLatex(0,body.length())+"}";

@@ -1,6 +1,5 @@
 package FMEUnits.FMEComposeds
 {
-	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import FMEUnits.FMEComposed;
 
@@ -8,7 +7,6 @@ package FMEUnits.FMEComposeds
 	{
 		private var numerator:FMEContainer;
 		private var denominator:FMEContainer;
-		private var cur:FMECursor = FMEScreen.scr.cursor;
 		private const lspace:Number = 3.3445;
 		private const rspace:Number = 3.3445;
 		private const uspace:Number = 0;

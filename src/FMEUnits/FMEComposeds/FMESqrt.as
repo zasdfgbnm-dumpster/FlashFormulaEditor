@@ -2,8 +2,6 @@ package FMEUnits.FMEComposeds
 {
 	import FMEUnits.FMEComposed;
 	
-	import flash.display.Sprite;
-	
 	public class FMESqrt extends FMEComposed
 	{
 		private var radix:FMEContainer;

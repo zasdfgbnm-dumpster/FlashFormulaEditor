@@ -82,7 +82,7 @@ package FMEUnits.FMEComposeds
 			x = ax;
 		}
 		override public function get ay():Number{
-			return y
+			return y;
 		}
 		override public function set ay(ay:Number):void{
 			y = ay;
@@ -96,7 +96,7 @@ package FMEUnits.FMEComposeds
 			if(subscript!=null&&subscript.height>subUpLocalH)
 				retval += subscript.height - subUpLocalH;
 			retval += dspace;
-			return retval
+			return retval;
 		}
 		override public function get awidth():Number{
 			var maxswidth:Number = 0;
@@ -111,7 +111,7 @@ package FMEUnits.FMEComposeds
 			if(superscript!=null)
 				retval += "^{" + superscript.getLatex(0,superscript.length()) + "}";
 			if(subscript!=null)
-				retval += "_{" + subscript.getLatex(0,subscript.length()) + "}"
+				retval += "_{" + subscript.getLatex(0,subscript.length()) + "}";
 			return retval;
 		}
 	}

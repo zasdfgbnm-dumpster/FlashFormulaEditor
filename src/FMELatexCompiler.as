@@ -176,7 +176,7 @@ package
 			else{
 				matches = Latex.match(underset);
 				if(matches.length!=0)
-					type = FMEUnderset
+					type = FMEUnderset;
 			}
 			if(matches.length!=0){
 				Latex = matches[0];
@@ -230,7 +230,7 @@ package
 				array.push(new charClasses[matchstr](who));
 				Latex = Latex.substr((matchs[0] as String).length);
 			}
-			return Latex
+			return Latex;
 		}
 		private static function testVec(Latex:String,who:FMEContainer,array:Array):String{
 			var origin:String = Latex;
