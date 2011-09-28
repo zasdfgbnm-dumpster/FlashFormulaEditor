@@ -29,7 +29,7 @@
     .footer { text-align:center; padding-top:30px; font-style: italic; }
   </style>
 
-<!-google analysis-->
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
