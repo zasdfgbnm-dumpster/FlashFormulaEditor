@@ -23,7 +23,7 @@ package
 			x = c.ax(lidx);
 			y = c.ay(lidx,ridx);
 			graphics.clear();
-			graphics.lineStyle(0,0x0000FF,1,false,LineScaleMode.NONE);
+			graphics.lineStyle(3,0x0000FF,1,false,LineScaleMode.NONE);
 			var h:Number = c.aheight(lidx,ridx); 
 			if(!isArea()){
 				graphics.moveTo(0,0);
