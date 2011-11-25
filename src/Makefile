@@ -1,8 +1,9 @@
-FLEXPATH=/opt/flex-sdk#replace this with your own flex path
+FLEXPATH=/opt/flex-sdk
 MXMLC=$(FLEXPATH)/bin/mxmlc
 THEME=$(FLEXPATH)/samples/themes/cobalt/cobalt.swc $(FLEXPATH)/frameworks/themes/Spark/spark.css
-FlashFormulaEditor.swf:FlashFormulaEditor.mxml
-%.swf:%.mxml
-	$(MXMLC) $^ -theme $(THEME) -output $@
+all:FlashFormulaEditor.swf
+FlashFormulaEditor.swf:FORCE
+	$(MXMLC) FlashFormulaEditor.mxml -theme $(THEME) -output FlashFormulaEditor.swf
+.PHONY:clean FORCE
 clean:
 	rm -f *.swf *.swz
