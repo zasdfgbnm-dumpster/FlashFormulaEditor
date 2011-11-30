@@ -23,6 +23,7 @@
 				fmescreen.addChild(scr);
 				update_screen();
 				flash.system.Security.allowDomain("*");
+				flash.system.Security.allowInsecureDomain("*");
 				ExternalInterface.addCallback("getLatex",getLatex);
 			}
 			protected function ins(latex:String):void{
