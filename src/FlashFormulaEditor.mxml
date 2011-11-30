@@ -164,19 +164,20 @@
 	</fx:Declarations>
 	<s:BorderContainer x="10" y="158" width="455" height="100">
 		<s:Label x="14" y="21" fontSize="20" fontWeight="bold" text="Latex:"/>
-		<s:TextInput id="inslatex" x="81" y="14" width="289" fontSize="20"/>
+		<s:TextInput id="inslatex" x="81" y="14" width="289"
+					fontFamily="DejaVu" fontSize="20"/>
 		<s:Button x="372" y="10" height="35" label="Insert" click="ins(inslatex.text)"
-				  fontSize="20"/>
+				 	fontFamily="DejaVu" fontSize="20"/>
 		<s:Button x="10" y="53" height="35" label="Cut" click="cut()"
-				  fontSize="20"/>
-		<s:Button x="74" y="53" height="35" label="Copy" click="copy()"
-				 fontSize="20"/>
-		<s:Button x="154" y="53" height="35" label="Paste" click="paste()"
-				 fontSize="20"/>
-		<s:Button x="237" y="53" height="35" label="Delete" click="del()"
-				 fontSize="20"/>
-		<s:Button x="326" y="53" height="35" label="Backspace" click="backspace()"
-				 fontSize="20"/>
+				 	fontFamily="DejaVu" fontSize="20"/>
+		<s:Button x="71" y="53" height="35" label="Copy" click="copy()"
+					fontFamily="DejaVu" fontSize="20"/>
+		<s:Button x="148" y="53" height="35" label="Paste" click="paste()"
+				 	fontFamily="DejaVu" fontSize="20"/>
+		<s:Button x="228" y="53" height="35" label="Delete" click="del()"
+					fontFamily="DejaVu" fontSize="20"/>
+		<s:Button x="318" y="53" height="35" label="Backspace" click="backspace()"
+				 	fontFamily="DejaVu" fontSize="20"/>
 	</s:BorderContainer>
 	<mx:TabNavigator x="10" y="269" width="457" height="273">
 		<s:NavigatorContent width="100%" height="100%" label="Digits&amp;Symbols">
