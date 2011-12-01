@@ -28,7 +28,7 @@ package
 		public function cheight():Number{
 			if(content.length==0)
 				return boxClass.h/2;
-			var maxcheight:Number = 0;
+			var maxcheight:Number = Number.NEGATIVE_INFINITY;
 			content.forEach(function (item:FMEUnit,index:int,array:Array):void{
 				if(item.cheight>maxcheight)
 					maxcheight = item.cheight;
