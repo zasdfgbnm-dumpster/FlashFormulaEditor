@@ -44,6 +44,21 @@
 
 </script>
 
+<script type="text/javascript">	
+		function getLatex(){
+			if(navigator.appName == "Microsoft Internet Explorer")
+				return document.getElementById("FlashFormulaEditorIE").getLatex();
+			else
+				return document.getElementById("FlashFormulaEditor").getLatex();	
+		}
+		function show()	
+		{	
+			latex = getLatex();
+			document.getElementById("ResultArea").value = latex;
+			document.getElementById("imgLatex").src = "http://latex.codecogs.com/png.latex?" + latex;
+		}
+</script>
+
 </head>
 
 <body>
@@ -66,11 +81,47 @@
     </div>
 
     <p>FlashFormulaEditor is a formula editor made by Adobe Flex. It is can be used as an online formula editor for a forum, blog etc.
-It uses Latex to express formula. You can get the latex of formula using javascript to call it's functions.</p><h2>Install</h2>
+It uses Latex to express formula. You can get the latex of formula using javascript to call it's functions.</p>
+<h2>Demo</h2>
+		<p>
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="475" height="552" id="FlashFormulaEditorIE">
+                <param name="movie" value="FlashFormulaEditor.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#ffffff" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="allowFullScreen" value="true" />
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="FlashFormulaEditor.swf" width="475" height="552" id="FlashFormulaEditor">
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#ffffff" />
+                    <param name="allowScriptAccess" value="always" />
+                    <param name="allowFullScreen" value="true" />
+                <!--<![endif]-->
+                <!--[if gte IE 6]>-->
+                    <p> 
+                        Either scripts and active content are not permitted to run or Adobe Flash Player version
+                        10.2.0 or greater is not installed.
+                    </p>
+                <!--<![endif]-->
+                    <a href="http://www.adobe.com/go/getflashplayer">
+                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                    </a>
+                <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+      <br/>
+      	<img id="imgLatex" src="http://latex.codecogs.com/png.latex?"/>
+		<br/>
+			<textarea id="ResultArea" name="result" cols="55" rows="5"></textarea>
+		<br/>
+			<input type="button" value="Show Results" onclick="show()"/>
+		</p>
+<h2>Install</h2>
 <p>You can use <object> element of html to insert into your webpage.
 And call the function getLatex() using javascript to get the latex of the formula.</p>
 <h2>License</h2>
-<p>GPLv3</p>
+<p>GPLv3+</p>
 <h2>Authors</h2>
 <p>Gao Xiang (qasdfgtyuiop@gmail.com)
 <br/>
@@ -78,7 +129,6 @@ And call the function getLatex() using javascript to get the latex of the formul
 <h2>Contact</h2>
 <p>Gao Xiang (qasdfgtyuiop@gmail.com)
 <br/>      </p>
-
 
     <h2>Download</h2>
     <p>
@@ -96,7 +146,6 @@ And call the function getLatex() using javascript to get the latex of the formul
     </div>
 
   </div>
-
-  
+	
 </body>
 </html>
