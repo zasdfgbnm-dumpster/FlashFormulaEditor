@@ -214,7 +214,7 @@
 			<s:Button x="167" y="60" width="35" height="35" label="•" click="ins(&quot;\\cdot&quot;)"
 					  fontFamily="DejaVu" fontSize="20"/>
 			<s:Button x="201" y="60" width="35" height="35" label="%" click="ins(&quot;\\%&quot;)"
-					  fontFamily="DejaVu" fontSize="16"/>
+					  fontFamily="DejaVu" fontSize="13"/>
 			<s:Button x="133" y="95" width="35" height="35" label="≤" click="ins(&quot;\\le&quot;)"
 					  fontFamily="DejaVu" fontSize="17"/>
 			<s:Button x="167" y="95" width="35" height="35" label="≥" click="ins(&quot;\\ge&quot;)"
@@ -386,7 +386,7 @@
 			<s:Button x="193" y="107" width="35" height="35" label="Ζ" click="ins(&quot;\\Zeta&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="228" y="107" width="35" height="35" label="Η" click="ins(&quot;\\Eta&quot;)"
-					  fontFamily="DejaVu" fontSize="20" />
+					  fontFamily="DejaVu" fontSize="15" />
 			<s:Button x="263" y="107" width="35" height="35" label="Θ" click="ins(&quot;\\Theta&quot;)"
 					  fontFamily="DejaVu" fontSize="17" />
 			<s:Button x="298" y="107" width="35" height="35" label="Ι" click="ins(&quot;\\Iota&quot;)"
@@ -404,7 +404,7 @@
 			<s:Button x="88" y="142" width="35" height="35" label="Ο" click="ins(&quot;\\Omicron&quot;)"
 					  fontFamily="DejaVu" fontSize="17" />
 			<s:Button x="123" y="142" width="35" height="35" label="Π" click="ins(&quot;\\Pi&quot;)"
-					  fontFamily="DejaVu" fontSize="20" />
+					  fontFamily="DejaVu" fontSize="16" />
 			<s:Button x="158" y="142" width="35" height="35" label="Ρ" click="ins(&quot;\\Rho&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="193" y="142" width="35" height="35" label="Σ" click="ins(&quot;\\Sigma&quot;)"
@@ -420,7 +420,7 @@
 			<s:Button x="368" y="142" width="35" height="35" label="Ψ" click="ins(&quot;\\Psi&quot;)"
 					  fontFamily="DejaVu" fontSize="17" />
 			<s:Button x="403" y="142" width="35" height="35" label="Ω" click="ins(&quot;\\Omega&quot;)"
-					  fontFamily="DejaVu" fontSize="20" />
+					  fontFamily="DejaVu" fontSize="15" />
 			<s:Button x="18" y="194" width="35" height="35" label="ε" click="ins(&quot;\\varepsilon&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="53" y="194" width="35" height="35" label="ϑ" click="ins(&quot;\\vartheta&quot;)"
@@ -494,15 +494,15 @@
 			<s:Button x="88" y="129" width="35" height="35" label="C" click="ins(&quot;C&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="123" y="129" width="35" height="35" label="D" click="ins(&quot;D&quot;)"
-					  fontFamily="DejaVu" fontSize="20" />
+					  fontFamily="DejaVu" fontSize="17" />
 			<s:Button x="158" y="129" width="35" height="35" label="E" click="ins(&quot;E&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="193" y="129" width="35" height="35" label="F" click="ins(&quot;F&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="228" y="129" width="35" height="35" label="G" click="ins(&quot;G&quot;)"
-					  fontFamily="DejaVu" fontSize="20" />
+					  fontFamily="DejaVu" fontSize="17" />
 			<s:Button x="263" y="129" width="35" height="35" label="H" click="ins(&quot;H&quot;)"
-					  fontFamily="DejaVu" fontSize="20" />
+					  fontFamily="DejaVu" fontSize="15" />
 			<s:Button x="298" y="129" width="35" height="35" label="I" click="ins(&quot;I&quot;)"
 					  fontFamily="DejaVu" fontSize="20" />
 			<s:Button x="333" y="129" width="35" height="35" label="J" click="ins(&quot;J&quot;)"
