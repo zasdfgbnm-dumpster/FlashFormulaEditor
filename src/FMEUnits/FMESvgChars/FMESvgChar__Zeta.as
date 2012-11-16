@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Zeta(who:FMEContainer)
 		{
-			super(who,0.220502,-5.88344,0,0,svg,46.216,"\\Zeta");
+			super(who,0.220502,-5.88344,0,0,svg,46.216,"Z");
 		}
 	}
 }

@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Iota(who:FMEContainer)
 		{
-			super(who,-2.70949,-8.13039,0,0,svg,46.216,"\\Iota");
+			super(who,-2.70949,-8.13039,0,0,svg,46.216,"I");
 		}
 	}
 }

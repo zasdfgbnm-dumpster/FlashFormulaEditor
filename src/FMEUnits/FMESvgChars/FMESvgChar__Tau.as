@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Tau(who:FMEContainer)
 		{
-			super(who,7.39744,-9.7405,0,0,svg,46.216,"\\Tau");
+			super(who,7.39744,-9.7405,0,0,svg,46.216,"T");
 		}
 	}
 }

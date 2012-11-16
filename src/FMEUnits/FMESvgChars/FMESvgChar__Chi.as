@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Chi(who:FMEContainer)
 		{
-			super(who,-6.27443,-13.4036,0,0,svg,46.216,"\\Chi");
+			super(who,-6.27443,-13.4036,0,0,svg,46.216,"X");
 		}
 	}
 }

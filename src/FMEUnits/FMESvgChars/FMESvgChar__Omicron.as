@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Omicron(who:FMEContainer)
 		{
-			super(who,6.37156,0.0246406,0,0,svg,46.216,"\\Omicron");
+			super(who,6.37156,0.0246406,0,0,svg,46.216,"O");
 		}
 	}
 }

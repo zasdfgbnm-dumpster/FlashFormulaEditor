@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Epsilon(who:FMEContainer)
 		{
-			super(who,-1.83052,-2.56349,0,0,svg,46.216,"\\Epsilon");
+			super(who,-1.83052,-2.56349,0,0,svg,46.216,"E");
 		}
 	}
 }

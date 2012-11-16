@@ -65,7 +65,7 @@ package FMEUnits.FMEComposeds
 			return lspace+midLineLength+rspace;
 		}
 		override public function get Latex():String{
-			return "\frac{"+numerator.getLatex(0,numerator.length())+"}{"+denominator.getLatex(0,denominator.length())+"}";
+			return "\\frac{"+numerator.getLatex(0,numerator.length())+"}{"+denominator.getLatex(0,denominator.length())+"}";
 		}
 	}
 }

@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Mu(who:FMEContainer)
 		{
-			super(who,-2.85646,-9.49648,0,0,svg,46.216,"\\Mu");
+			super(who,-2.85646,-9.49648,0,0,svg,46.216,"M");
 		}
 	}
 }

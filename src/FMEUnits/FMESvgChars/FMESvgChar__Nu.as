@@ -8,7 +8,7 @@ package FMEUnits.FMESvgChars
 		public var svg:Class;
 		public function FMESvgChar__Nu(who:FMEContainer)
 		{
-			super(who,-2.36745,-9.88747,0,0,svg,46.216,"\\Nu");
+			super(who,-2.36745,-9.88747,0,0,svg,46.216,"N");
 		}
 	}
 }
